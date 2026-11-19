@@ -835,6 +835,86 @@
       body { background: #fff; color: #000; }
       .card, .module-banner, .q-card { box-shadow: none; break-inside: avoid; }
     }
+  
+    /* Wrapped sticky tabs so Simulado is always visible without scrolling */
+    .nav-inner { flex-wrap: wrap !important; overflow-x: visible !important; }
+    .btn-simulado-hero {
+      background: #e76f3c;
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.35);
+      padding: 7px 14px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .btn-simulado-hero:hover { background: #d45d2a; transform: translateY(-1px); }
+
+    /* Turbo Multiple-Choice Cards */
+    .turbo-card {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: var(--shadow-sm);
+    }
+    .turbo-opts { display: flex; flex-direction: column; gap: 7px; }
+    .turbo-opt-btn {
+      width: 100%;
+      text-align: left;
+      padding: 9px 12px;
+      border-radius: 10px;
+      border: 1.5px solid var(--border);
+      background: var(--bg-surface);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.86rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      transition: all 0.16s ease;
+      line-height: 1.4;
+    }
+    .turbo-opt-btn:hover:not(:disabled) { border-color: var(--purple); background: var(--purple-bg); }
+    .turbo-opt-btn:disabled { cursor: default; }
+    .turbo-opt-btn.correct { background: var(--sage-bg); border-color: var(--sage); font-weight: 600; }
+    .turbo-opt-btn.wrong { background: var(--danger-bg); border-color: var(--danger); }
+    .turbo-letter {
+      flex: 0 0 22px;
+      height: 22px;
+      border-radius: 6px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.76rem;
+      color: var(--purple);
+      margin-top: 1px;
+    }
+    .turbo-opt-btn.correct .turbo-letter { background: var(--sage); color: #fff; border-color: var(--sage); }
+    .turbo-opt-btn.wrong .turbo-letter { background: var(--danger); color: #fff; border-color: var(--danger); }
+    .turbo-explain {
+      display: none;
+      margin-top: 4px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: var(--bg-subtle);
+      border-left: 3.5px solid var(--sage);
+      font-size: 0.85rem;
+      line-height: 1.45;
+    }
+    .turbo-explain.show { display: block; animation: fadeIn 0.2s ease; }
+    .turbo-explain.is-wrong { border-left-color: var(--danger); }
+
   </style>
 </head>
 <body>
@@ -850,7 +930,7 @@
         </div>
       </div>
       <h1>Guia Completo de Estudo & Simulado para a Prova</h1>
-      <p>Resumos descomplicados, analogias práticas, alertas de pegadinhas, diagramas visuais, flashcards e <strong>30 questões de múltipla escolha comentadas</strong> baseados integralmente nos 5 materiais da pasta de Anatomia.</p>
+      <p>Resumos descomplicados, analogias práticas, alertas de pegadinhas, diagramas visuais, 16 questões rápidas de pegadinhas e <strong>30 questões de múltipla escolha comentadas</strong> baseados integralmente nos 5 materiais da pasta de Anatomia.</p>
 
       <div class="study-progress-wrap">
         <div class="progress-info" id="progressText">Progresso de estudo: 0 de 5 módulos concluídos</div>
@@ -1707,11 +1787,14 @@
     <section id="turbo" class="panel">
       <div class="module-banner">
         <div>
-          <span class="module-tag" style="background: var(--purple-bg); color: var(--purple);">⚡ Revisão de Véspera</span>
-          <h2>Flashcards Turbo — Pegadinhas Clássicas de Prova</h2>
-          <p>Clique em cada cartão para testar sua memória ativa e revelar a resposta. São os conceitos que mais derrubam estudantes nas provas!</p>
+          <span class="module-tag" style="background: var(--purple-bg); color: var(--purple);">⚡ Revisão de Véspera • Múltipla Escolha</span>
+          <h2>Revisão Turbo — 16 Pegadinhas de Prova (Múltipla Escolha)</h2>
+          <p>Teste rápido em múltipla escolha (A–D) com os pontos que mais caem em prova. Quer ainda mais questões? Abra também a aba <strong>📝 Simulado</strong>!</p>
         </div>
-        <button class="action-btn" id="revealAllCardsBtn" type="button">👁️ Revelar / Ocultar Todos</button>
+        <div style="display:flex; flex-direction:column; align-items:flex-end; gap:8px;">
+          <span id="turboScoreBadge" style="font-size:0.84rem; font-weight:800; color:var(--purple);">Acertos Turbo: 0/0 (0/16)</span>
+          <button class="action-btn" id="resetTurboBtn" type="button">↺ Refazer Revisão Turbo</button>
+        </div>
       </div>
 
       <div class="flashcard-grid" id="flashcardGrid"></div>
@@ -1780,23 +1863,199 @@
     // FLASHCARDS DATA (16 high-yield exam traps)
     // =========================================================================
     const FLASHCARDS = [
-      { mod: "1. Crescimento Ósseo", q: "Quem fecha a placa epifisária nos homens: testosterona ou estrogênio?", a: "ESTROGÊNIO! Em ambos os sexos, o fechamento depende da sinalização estrogênica. Nos homens, a enzima aromatase converte testosterona em estradiol." },
-      { mod: "1. Crescimento Ósseo", q: "Qual a diferença entre AER (FGF8) e ZPA (SHH) no broto do membro?", a: "AER (Crista Ectodérmica Apical, distal) secreta FGF8 e guia o eixo PROXIMAL–DISTAL. ZPA (posterior) secreta Sonic Hedgehog (SHH) e guia o eixo ÂNTERO–POSTERIOR (identidade dos dedos)." },
-      { mod: "1. Crescimento Ósseo", q: "O que faz o circuito Ihh–PTHrP e o que acontece na mutação ativadora do FGFR3?", a: "Ihh estimula PTHrP, que mantém a proliferação e retarda a hipertrofia precoce dos condrócitos. O FGFR3 é um freio do crescimento; sua mutação ativadora trava o crescimento endocondral e causa ACONDROPLASIA." },
-      { mod: "1. Crescimento Ósseo", q: "Depois que a placa epifisária fecha, GH ou alongamento conseguem fazer o osso crescer em comprimento?", a: "NÃO! Após a fusão epifisária completa, nada reabre fisiologicamente a placa. O osso adulto faz remodelamento, mas remodelamento ≠ crescimento longitudinal." },
-      { mod: "2. Tecido Muscular", q: "Qual o papel do Cálcio (Ca²⁺) e do ATP na contração muscular?", a: "O Ca²⁺ (liberado do retículo sarcoplasmático) liga-se à troponina, deslocando a tropomiosina para expor os sítios da actina. O ATP é necessário para DESLIGAR a cabeça da miosina da actina e reativá-la." },
-      { mod: "2. Tecido Muscular", q: "A fosfocreatina (PCr) fornece energia diretamente para a miosina puxar a actina?", a: "NÃO! Ela doa um fosfato para o ADP (via enzima creatina quinase — CK) para reconstruir ATP rapidamente (PCr + ADP → ATP + creatina) nos primeiros segundos de esforço máximo." },
-      { mod: "2. Tecido Muscular", q: "Compare rapidamente Fibras Tipo I, IIa e IIx.", a: "Tipo I: vermelha, fina, muitas mitocôndrias, oxidativa, alta resistência (postura/maratona). Tipo IIa: rosada, intermediária, mista (esportes coletivos). Tipo IIx: clara, grossa, glicolítica/fosfagênio, explosiva, fadiga rápido (sprint/peso máximo)." },
-      { mod: "2. Tecido Muscular", q: "Qual o colágeno e a célula produtora do tendão?", a: "Colágeno tipo I organizado em paralelo, produzido pelos tenócitos. É pouco vascularizado, muito resistente à tração e armazena energia elástica." },
-      { mod: "3. Controle Neural", q: "Por que existe a coativação alfa-gama no fuso muscular?", a: "Motoneurônios α contraem fibras extrafusais (força). Se só α disparasse, o músculo encurtaria e o fuso ficaria frouxo. Motoneurônios γ contraem as pontas intrafusais ao mesmo tempo para manter o fuso sensível!" },
-      { mod: "3. Controle Neural", q: "O Órgão Tendinoso de Golgi (OTG) serve apenas como 'interruptor contra rupturas'?", a: "NÃO! Essa é uma simplificação. Localizado em série (junção músculo-tendão, aferência Ib), ele informa tensão/força para controle fino e pode gerar respostas inibitórias (inibição autogênica) OU facilitadoras conforme a tarefa." },
-      { mod: "3. Controle Neural", q: "Ficar em pé numa perna só mede acurácia proprioceptiva?", a: "NÃO! Avalia desempenho de EQUILÍBRIO, que depende de visão, sistema vestibular, força, coordenação, cerebelo e propriocepção. Senso de posição (reproduzir ângulo) e cinestesia (detectar movimento passivo) medem dimensões específicas." },
-      { mod: "3. Controle Neural", q: "O que define a espasticidade e o que ela NÃO é?", a: "É o aumento DEPENDENTE DA VELOCIDADE da resposta ao alongamento por alteração do controle descendente (lesão do SNC). NÃO deve ser confundida automaticamente com contraturas ou rigidez tecidual." },
-      { mod: "4. Funções Musculares", q: "Ao abaixar devagar um halter (extensão do cotovelo), quem é o músculo agonista?", a: "Os FLEXORES do cotovelo (bíceps/braquial), atuando de forma EXCÊNTRICA para frear a gravidade! A direção do movimento sozinha não define o agonista — o que define é o torque predominante para controlar a tarefa." },
-      { mod: "4. Funções Musculares", q: "Dê um exemplo clássico de sinergismo neutralizador e de mudança de papel para estabilizador.", a: "Neutralizador: flexor radial do carpo + flexor ulnar do carpo cancelam os desvios radial/ulnar e fazem flexão pura do punho. Estabilizador: glúteo médio faz abdução deitado (agonista), mas estabiliza a pelve no apoio unipodal da marcha." },
-      { mod: "5. Fáscias", q: "O que significam Anisotropia e Viscoelasticidade nas fáscias?", a: "Anisotropia: resistência mecânica depende da DIREÇÃO da força (orientação do colágeno). Viscoelasticidade: resposta depende não só da força, mas também da VELOCIDADE e do TEMPO de aplicação (elástico + viscoso / ácido hialurônico)." },
-      { mod: "5. Fáscias", q: "Qual a diferença entre Nociceptor, Nocicepção e Dor — e entre Efeito Clínico e Mecanismo?", a: "Nociceptor = receptor; Nocicepção = processo neurofisiológico; Dor = experiência sensorial e emocional complexa. Já melhora após 'liberação miofascial' (efeito clínico) NÃO prova rompimento de aderência (mecanismo)!" }
-    ];
+      {
+            "mod": "1. Crescimento Ósseo",
+            "q": "Quem é o principal hormônio responsável pelo fechamento da placa epifisária nos HOMENS?",
+            "options": [
+                  "Apenas a testosterona, sem participação de estrogênio.",
+                  "O estrogênio (estradiol), produzido a partir da testosterona pela enzima aromatase.",
+                  "Apenas o hormônio do crescimento (GH).",
+                  "A insulina hepática isoladamente."
+            ],
+            "correct": 1,
+            "a": "ESTROGÊNIO! Em ambos os sexos, o fechamento depende da sinalização estrogênica. Nos homens, a enzima aromatase converte testosterona em estradiol."
+      },
+      {
+            "mod": "1. Crescimento Ósseo",
+            "q": "Qual é a associação correta entre centro sinalizador embrionário, molécula e eixo do membro?",
+            "options": [
+                  "AER secreta SHH (ântero-posterior) e ZPA secreta FGF8 (proximal-distal).",
+                  "AER secreta FGF8 (eixo proximal-distal) e ZPA secreta Sonic Hedgehog/SHH (eixo ântero-posterior).",
+                  "AER secreta VEGF e ZPA secreta cálcio.",
+                  "Ambos secretam apenas colágeno tipo I."
+            ],
+            "correct": 1,
+            "a": "AER (Crista Ectodérmica Apical, distal) secreta FGF8 e guia o eixo PROXIMAL–DISTAL. ZPA (posterior) secreta Sonic Hedgehog (SHH) e guia o eixo ÂNTERO–POSTERIOR (identidade dos dedos)."
+      },
+      {
+            "mod": "1. Crescimento Ósseo",
+            "q": "O que faz o circuito Ihh–PTHrP e o que ocorre na mutação ativadora do FGFR3?",
+            "options": [
+                  "PTHrP acelera a hipertrofia imediata; mutação no FGFR3 causa gigantismo.",
+                  "Ihh estimula PTHrP (que retarda a hipertrofia precoce mantendo proliferação); mutação ativadora do FGFR3 trava o crescimento endocondral causando acondroplasia.",
+                  "FGFR3 é o principal acelerador da placa; Ihh fecha a placa na puberdade.",
+                  "Ambos atuam apenas na ossificação intramembranosa do crânio."
+            ],
+            "correct": 1,
+            "a": "Ihh estimula PTHrP, que mantém a proliferação e retarda a hipertrofia precoce dos condrócitos. O FGFR3 é um freio do crescimento; sua mutação ativadora trava o crescimento endocondral e causa ACONDROPLASIA."
+      },
+      {
+            "mod": "1. Crescimento Ósseo",
+            "q": "Depois que a placa epifisária se fecha completamente, GH, exercício ou alongamento conseguem fazer o osso crescer em comprimento?",
+            "options": [
+                  "Sim, o GH reabre placas fundidas em adultos.",
+                  "Sim, alongamento intenso reverte a fusão epifisária.",
+                  "Não! Após fusão completa, nada reabre fisiologicamente a placa; o osso adulto apenas se remodela.",
+                  "Sim, desde que associado à suplementação de cálcio."
+            ],
+            "correct": 2,
+            "a": "NÃO! Após a fusão epifisária completa, nada reabre fisiologicamente a placa. O osso adulto faz remodelamento, mas remodelamento ≠ crescimento longitudinal."
+      },
+      {
+            "mod": "2. Tecido Muscular",
+            "q": "Qual o papel do Cálcio (Ca²⁺) e do ATP na contração muscular esquelética?",
+            "options": [
+                  "Ca²⁺ desliga a miosina da actina; ATP liga-se à troponina.",
+                  "Ca²⁺ liga-se à troponina (deslocando a tropomiosina para expor a actina); ATP é necessário para desligar a miosina da actina e reativá-la.",
+                  "Ca²⁺ quebra a miosina; ATP impede o deslizamento dos filamentos.",
+                  "Apenas o Ca²⁺ é necessário; o ATP não participa do desligamento da ponte cruzada."
+            ],
+            "correct": 1,
+            "a": "O Ca²⁺ (liberado do retículo sarcoplasmático) liga-se à troponina, deslocando a tropomiosina para expor os sítios da actina. O ATP é necessário para DESLIGAR a cabeça da miosina da actina e reativá-la."
+      },
+      {
+            "mod": "2. Tecido Muscular",
+            "q": "A fosfocreatina (PCr) fornece energia diretamente para a cabeça da miosina puxar a actina?",
+            "options": [
+                  "Sim, ela substitui o ATP diretamente na ponte cruzada.",
+                  "Não! Ela doa um fosfato para o ADP (via enzima CK) para reconstruir ATP rapidamente nos primeiros segundos de esforço máximo.",
+                  "Não, ela só é usada após 40 minutos de corrida aeróbia.",
+                  "Sim, mas exclusivamente dentro das mitocôndrias."
+            ],
+            "correct": 1,
+            "a": "NÃO! Ela doa um fosfato para o ADP (via enzima creatina quinase — CK) para reconstruir ATP rapidamente (PCr + ADP → ATP + creatina) nos primeiros segundos de esforço máximo."
+      },
+      {
+            "mod": "2. Tecido Muscular",
+            "q": "Qual alternativa associa corretamente os tipos de fibras musculares esqueléticas?",
+            "options": [
+                  "Tipo I: clara, grossa, explosiva; Tipo IIx: vermelha, fina, postura.",
+                  "Tipo I: vermelha, fina, oxidativa, alta resistência; Tipo IIa: rosada, mista; Tipo IIx: clara, grossa, glicolítica/fosfagênio, explosiva e fadiga rápido.",
+                  "Tipo IIa: sem mitocôndrias e sem mioglobina.",
+                  "Tipo IIx: especializada na manutenção prolongada da postura."
+            ],
+            "correct": 1,
+            "a": "Tipo I: vermelha, fina, muitas mitocôndrias, oxidativa, alta resistência (postura/maratona). Tipo IIa: rosada, intermediária, mista (esportes coletivos). Tipo IIx: clara, grossa, glicolítica/fosfagênio, explosiva, fadiga rápido (sprint/peso máximo)."
+      },
+      {
+            "mod": "2. Tecido Muscular",
+            "q": "Qual é o principal colágeno e a célula produtora encontrados no tendão?",
+            "options": [
+                  "Colágeno tipo II produzido por condrócitos, com altíssima vascularização.",
+                  "Colágeno tipo I organizado em paralelo, produzido por tenócitos, pouco vascularizado e capaz de armazenar energia elástica.",
+                  "Colágeno tipo IV produzido por osteócitos.",
+                  "Elastina pura produzida por mioblastos."
+            ],
+            "correct": 1,
+            "a": "Colágeno tipo I organizado em paralelo, produzido pelos tenócitos. É pouco vascularizado, muito resistente à tração e armazena energia elástica."
+      },
+      {
+            "mod": "3. Controle Neural",
+            "q": "Por que ocorre a coativação alfa–gama (α–γ) no fuso muscular durante a contração?",
+            "options": [
+                  "Para desligar o fuso muscular enquanto o músculo se encurta.",
+                  "Porque motoneurônios γ contraem as pontas intrafusais ao mesmo tempo em que α contrai as extrafusais, evitando que o fuso fique frouxo e perca sensibilidade.",
+                  "Porque motoneurônios γ geram 90% da força muscular.",
+                  "Para impedir a atuação do órgão tendinoso de Golgi."
+            ],
+            "correct": 1,
+            "a": "Motoneurônios α contraem fibras extrafusais (força). Se só α disparasse, o músculo encurtaria e o fuso ficaria frouxo. Motoneurônios γ contraem as pontas intrafusais ao mesmo tempo para manter o fuso sensível!"
+      },
+      {
+            "mod": "3. Controle Neural",
+            "q": "O Órgão Tendinoso de Golgi (OTG) atua apenas como um 'interruptor contra rupturas'?",
+            "options": [
+                  "Sim, sua única função é relaxar abruptamente o músculo em risco de ruptura.",
+                  "Não! Em série (junção músculo-tendão, aferência Ib), informa tensão para controle fino e pode gerar respostas inibitórias (inibição autogênica) OU facilitadoras conforme a tarefa.",
+                  "Não, porque o OTG detecta apenas comprimento e fica em paralelo.",
+                  "Sim, e conduz sinais exclusivamente por fibras Ia."
+            ],
+            "correct": 1,
+            "a": "NÃO! Essa é uma simplificação. Localizado em série (junção músculo-tendão, aferência Ib), ele informa tensão/força para controle fino e pode gerar respostas inibitórias (inibição autogênica) OU facilitadoras conforme a tarefa."
+      },
+      {
+            "mod": "3. Controle Neural",
+            "q": "Permanecer em pé sobre uma perna avalia diretamente a acurácia proprioceptiva?",
+            "options": [
+                  "Sim, é o único teste necessário para diagnosticar perda proprioceptiva.",
+                  "Não! Avalia desempenho de EQUILÍBRIO, que envolve visão, sistema vestibular, força, coordenação, cerebelo e propriocepção.",
+                  "Sim, pois equilíbrio e cinestesia são exatamente sinônimos.",
+                  "Não, pois o apoio unipodal avalia apenas o reflexo patelar."
+            ],
+            "correct": 1,
+            "a": "NÃO! Avalia desempenho de EQUILÍBRIO, que depende de visão, sistema vestibular, força, coordenação, cerebelo e propriocepção. Senso de posição (reproduzir ângulo) e cinestesia (detectar movimento passivo) medem dimensões específicas."
+      },
+      {
+            "mod": "3. Controle Neural",
+            "q": "O que define corretamente a espasticidade na avaliação clínica?",
+            "options": [
+                  "Qualquer resistência ao movimento passivo, incluindo contraturas teciduais.",
+                  "Aumento DEPENDENTE DA VELOCIDADE da resposta ao alongamento por alteração do controle descendente (lesão do SNC), não devendo ser confundida com contraturas.",
+                  "Perda total de todos os reflexos tendinosos.",
+                  "Diminuição da sensibilidade cutânea nos dedos."
+            ],
+            "correct": 1,
+            "a": "É o aumento DEPENDENTE DA VELOCIDADE da resposta ao alongamento por alteração do controle descendente (lesão do SNC). NÃO deve ser confundida automaticamente com contraturas ou rigidez tecidual."
+      },
+      {
+            "mod": "4. Funções Musculares",
+            "q": "Ao abaixar devagar um halter (extensão controlada do cotovelo), quem atua como músculo AGONISTA?",
+            "options": [
+                  "Tríceps braquial em contração concêntrica.",
+                  "Os FLEXORES do cotovelo (bíceps/braquial), atuando em contração EXCÊNTRICA para frear a gravidade.",
+                  "Tríceps braquial em contração excêntrica.",
+                  "Nenhum músculo atua, apenas a gravidade."
+            ],
+            "correct": 1,
+            "a": "Os FLEXORES do cotovelo (bíceps/braquial), atuando de forma EXCÊNTRICA para frear a gravidade! A direção do movimento sozinha não define o agonista — o que define é o torque predominante para controlar a tarefa."
+      },
+      {
+            "mod": "4. Funções Musculares",
+            "q": "Qual alternativa traz exemplos corretos de sinergismo neutralizador e de mudança de papel para estabilizador?",
+            "options": [
+                  "Neutralizador: tríceps + bíceps; Estabilizador: apenas músculos que nunca podem ser agonistas.",
+                  "Neutralizador: flexor radial + flexor ulnar do carpo (cancelam desvios na flexão do punho); Estabilizador: glúteo médio (agonista na abdução deitado, estabilizador da pelve na marcha).",
+                  "Neutralizador: glúteo médio sozinho; Estabilizador: somente ligamentos passivos.",
+                  "Neutralizador: apenas na contração isométrica; Estabilizador: sinônimo de imobilidade total."
+            ],
+            "correct": 1,
+            "a": "Neutralizador: flexor radial do carpo + flexor ulnar do carpo cancelam os desvios radial/ulnar e fazem flexão pura do punho. Estabilizador: glúteo médio faz abdução deitado (agonista), mas estabiliza a pelve no apoio unipodal da marcha."
+      },
+      {
+            "mod": "5. Fáscias",
+            "q": "O que significam Anisotropia e Viscoelasticidade nas fáscias?",
+            "options": [
+                  "Anisotropia = responde igual em todas as direções; Viscoelasticidade = independe do tempo.",
+                  "Anisotropia = resistência depende da DIREÇÃO da força (orientação do colágeno); Viscoelasticidade = resposta depende da força, da VELOCIDADE e do TEMPO (elástico + viscoso / ácido hialurônico).",
+                  "Ambos significam rigidez permanente causada por fibrose.",
+                  "Anisotropia = variação de cor; Viscoelasticidade = presença de fibras musculares."
+            ],
+            "correct": 1,
+            "a": "Anisotropia: resistência mecânica depende da DIREÇÃO da força (orientação do colágeno). Viscoelasticidade: resposta depende não só da força, mas também da VELOCIDADE e do TEMPO de aplicação (elástico + viscoso / ácido hialurônico)."
+      },
+      {
+            "mod": "5. Fáscias",
+            "q": "Sobre Nociceptor, Nocicepção, Dor e 'Liberação Miofascial', qual afirmação é cientificamente correta?",
+            "options": [
+                  "Nocicepção e dor são sinônimos; melhora após terapia manual prova rompimento de aderências fasciais.",
+                  "Nociceptor = receptor; Nocicepção = processo neurofisiológico; Dor = experiência sensorial e emocional complexa; e melhora clínica após técnica manual NÃO comprova rompimento estrutural de aderência.",
+                  "Dor é sempre linearmente proporcional ao tamanho da lesão fascial.",
+                  "A terapia manual não tem efeito clínico se não romper colágeno."
+            ],
+            "correct": 1,
+            "a": "Nociceptor = receptor; Nocicepção = processo neurofisiológico; Dor = experiência sensorial e emocional complexa. Já melhora após 'liberação miofascial' (efeito clínico) NÃO prova rompimento de aderência (mecanismo)!"
+      }
+];
 
     // =========================================================================
     // QUIZ QUESTIONS (30 questions — 6 per module)
@@ -2209,7 +2468,8 @@
     const STORAGE_KEY = "anatomia_2p_study_v1";
     let state = {
       doneMods: {},
-      answers: {}, // { qId: chosenIndex }
+      answers: {},
+      turboAnswers: {}, // { qId: chosenIndex }
       dark: false
     };
 
@@ -2361,36 +2621,87 @@
     });
 
     // =========================================================================
-    // FLASHCARDS
+    // REVISÃO TURBO (MÚLTIPLA ESCOLHA RÁPIDA)
     // =========================================================================
     const flashcardGrid = document.getElementById("flashcardGrid");
-    let allRevealed = false;
+    const turboScoreBadge = document.getElementById("turboScoreBadge");
+    const turboLetters = ["A", "B", "C", "D"];
+
+    function updateTurboStats() {
+      const tAns = state.turboAnswers || {};
+      let answered = 0, correct = 0;
+      FLASHCARDS.forEach((fc, i) => {
+        if (tAns[i] !== undefined) {
+          answered++;
+          if (tAns[i] === fc.correct) correct++;
+        }
+      });
+      if (turboScoreBadge) {
+        turboScoreBadge.textContent = `Acertos Turbo: ${correct}/${answered} (${answered}/${FLASHCARDS.length} respondidas)`;
+      }
+    }
 
     function renderFlashcards() {
-      flashcardGrid.innerHTML = FLASHCARDS.map((fc, i) => `
-        <div class="flashcard" data-fc="${i}" tabindex="0" role="button">
-          <div>
-            <div class="flashcard-mod">${fc.mod}</div>
-            <div class="flashcard-q">${fc.q}</div>
-          </div>
-          <div class="flashcard-a">${fc.a}</div>
-          <div class="flashcard-hint">👆 Clique para revelar a resposta</div>
-        </div>
-      `).join("");
+      const tAns = state.turboAnswers || {};
+      flashcardGrid.innerHTML = FLASHCARDS.map((fc, i) => {
+        const chosen = tAns[i];
+        const isAnswered = chosen !== undefined;
+        const isRight = isAnswered && chosen === fc.correct;
+        const optsHtml = fc.options.map((opt, oi) => {
+          let cls = "turbo-opt-btn";
+          if (isAnswered) {
+            if (oi === fc.correct) cls += " correct";
+            else if (oi === chosen && chosen !== fc.correct) cls += " wrong";
+          }
+          return `
+            <button class="${cls}" data-ti="${i}" data-oi="${oi}" ${isAnswered ? "disabled" : ""} type="button">
+              <span class="turbo-letter">${turboLetters[oi]}</span>
+              <span>${opt}</span>
+            </button>
+          `;
+        }).join("");
 
-      flashcardGrid.querySelectorAll(".flashcard").forEach(card => {
-        const toggle = () => card.classList.toggle("revealed");
-        card.addEventListener("click", toggle);
-        card.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); } });
+        return `
+          <div class="turbo-card">
+            <div>
+              <div class="flashcard-mod">${fc.mod} • Pegadinha ${i + 1}</div>
+              <div class="flashcard-q" style="margin-bottom:0;">${fc.q}</div>
+            </div>
+            <div class="turbo-opts">${optsHtml}</div>
+            <div class="turbo-explain ${isAnswered ? "show" : ""} ${isAnswered && !isRight ? "is-wrong" : ""}">
+              <strong style="color:${isRight ? "var(--sage)" : "var(--danger)"};">
+                ${isRight ? "✅ Acertou!" : `❌ Quase! Correta: letra ${turboLetters[fc.correct]}.`}
+              </strong>
+              <div style="margin-top:4px;">${fc.a}</div>
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      flashcardGrid.querySelectorAll(".turbo-opt-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const ti = Number(btn.dataset.ti);
+          const oi = Number(btn.dataset.oi);
+          if (!state.turboAnswers) state.turboAnswers = {};
+          if (state.turboAnswers[ti] !== undefined) return;
+          state.turboAnswers[ti] = oi;
+          saveState();
+          updateTurboStats();
+          renderFlashcards();
+        });
       });
+      updateTurboStats();
     }
     renderFlashcards();
 
-    document.getElementById("revealAllCardsBtn").addEventListener("click", () => {
-      allRevealed = !allRevealed;
-      flashcardGrid.querySelectorAll(".flashcard").forEach(c => c.classList.toggle("revealed", allRevealed));
-    });
-
+    const resetTurboBtn = document.getElementById("resetTurboBtn");
+    if (resetTurboBtn) {
+      resetTurboBtn.addEventListener("click", () => {
+        state.turboAnswers = {};
+        saveState();
+        renderFlashcards();
+      });
+    }
     // =========================================================================
     // QUIZ ENGINE
     // =========================================================================
