@@ -1,0 +1,2550 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guia de Estudo & Simulado — Anatomia do Aparelho Locomotor (2º Período)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-page: #edf3f7;
+      --bg-surface: #fcfaf4;
+      --bg-card: #ffffff;
+      --bg-subtle: #f2efe6;
+      --text-main: #1d2d50;
+      --text-muted: #52627a;
+      --border: #d9e2ec;
+      --navy: #1f335c;
+      --navy-soft: #e6eef8;
+      --sage: #3b7a57;
+      --sage-bg: #e4f2ea;
+      --sage-border: #9fd1b5;
+      --terra: #c65d28;
+      --terra-bg: #fdf0e8;
+      --terra-border: #f0b899;
+      --amber: #b4690e;
+      --amber-bg: #fef7e6;
+      --amber-border: #f5d38e;
+      --purple: #6b3fa0;
+      --purple-bg: #f3ecfa;
+      --purple-border: #cfb7eb;
+      --teal: #0f766e;
+      --teal-bg: #e6f6f4;
+      --teal-border: #99dad3;
+      --danger: #b91c1c;
+      --danger-bg: #feecec;
+      --danger-border: #f4a9a9;
+      --shadow-sm: 0 2px 8px rgba(29, 45, 80, 0.06);
+      --shadow-md: 0 10px 28px rgba(29, 45, 80, 0.08);
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+    }
+
+    body.dark {
+      --bg-page: #0f172a;
+      --bg-surface: #162033;
+      --bg-card: #1e293b;
+      --bg-subtle: #243247;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --border: #334155;
+      --navy: #93c5fd;
+      --navy-soft: #1e3a5f;
+      --sage: #6ee7b7;
+      --sage-bg: #12332a;
+      --sage-border: #25644e;
+      --terra: #fdba74;
+      --terra-bg: #3b2318;
+      --terra-border: #7c4427;
+      --amber: #fcd34d;
+      --amber-bg: #3a2d13;
+      --amber-border: #785d22;
+      --purple: #d8b4fe;
+      --purple-bg: #2e1d44;
+      --purple-border: #5f3d8a;
+      --teal: #5eead4;
+      --teal-bg: #113433;
+      --teal-border: #1e605d;
+      --danger: #fca5a5;
+      --danger-bg: #3f181c;
+      --danger-border: #822b33;
+      --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.25);
+      --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header */
+    .hero {
+      background: linear-gradient(135deg, #1b2e56 0%, #274878 55%, #1e6668 100%);
+      color: #ffffff;
+      padding: 28px 20px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 85% 20%, rgba(255,255,255,0.12), transparent 45%),
+                  radial-gradient(circle at 12% 90%, rgba(159,209,181,0.16), transparent 40%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      padding: 7px 14px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .btn-ghost:hover { background: rgba(255, 255, 255, 0.26); }
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    .hero p {
+      margin: 0;
+      opacity: 0.9;
+      font-size: 0.98rem;
+      max-width: 760px;
+    }
+
+    /* Progress Bar inside Hero */
+    .study-progress-wrap {
+      margin-top: 18px;
+      background: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 14px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .progress-info {
+      font-size: 0.86rem;
+      font-weight: 600;
+    }
+    .progress-bar-bg {
+      flex: 1;
+      min-width: 180px;
+      height: 10px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #86efac, #38bdf8);
+      border-radius: 999px;
+      transition: width 0.35s ease;
+    }
+
+    /* Sticky Main Tabs */
+    .nav-sticky {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .nav-inner::-webkit-scrollbar { display: none; }
+    .tab-btn {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 15px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .tab-btn:hover {
+      background: var(--bg-subtle);
+      color: var(--text-main);
+    }
+    .tab-btn.active {
+      background: var(--navy-soft);
+      color: var(--navy);
+      border-color: var(--border);
+    }
+    .tab-btn.quiz-tab.active {
+      background: var(--terra-bg);
+      color: var(--terra);
+      border-color: var(--terra-border);
+    }
+    .tab-btn.turbo-tab.active {
+      background: var(--purple-bg);
+      color: var(--purple);
+      border-color: var(--purple-border);
+    }
+    .done-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      display: none;
+    }
+    .tab-btn.is-done .done-dot { display: inline-block; }
+
+    /* Container */
+    .container {
+      max-width: 1120px;
+      margin: 24px auto 64px;
+      padding: 0 16px;
+    }
+
+    /* Search box */
+    .search-bar-wrap {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .search-input {
+      flex: 1;
+      min-width: 220px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1.5px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-main);
+      font-size: 0.95rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .search-input:focus { border-color: var(--navy); }
+    .search-status {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* Sections */
+    .panel { display: none; animation: fadeIn 0.25s ease; }
+    .panel.active { display: block; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Module Header Card */
+    .module-banner {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .module-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 8px;
+      background: var(--navy-soft);
+      color: var(--navy);
+    }
+    .module-banner h2 {
+      margin: 0 0 6px;
+      font-size: 1.55rem;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+    .module-banner p {
+      margin: 0;
+      color: var(--text-muted);
+      max-width: 720px;
+      font-size: 0.95rem;
+    }
+    .check-done-btn {
+      padding: 10px 16px;
+      border-radius: 12px;
+      border: 1.5px solid var(--border);
+      background: var(--bg-subtle);
+      color: var(--text-main);
+      font-weight: 700;
+      font-size: 0.86rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .check-done-btn.checked {
+      background: var(--sage-bg);
+      color: var(--sage);
+      border-color: var(--sage-border);
+    }
+
+    /* Content Cards */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow-sm);
+    }
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card h4 {
+      margin: 16px 0 8px;
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .card p { margin: 0 0 10px; }
+    .card ul, .card ol { margin: 8px 0 12px; padding-left: 20px; }
+    .card li { margin-bottom: 6px; }
+
+    /* Grid layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+      margin: 14px 0;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+      margin: 14px 0;
+    }
+    .mini-box {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+    }
+    .mini-box h4 {
+      margin: 0 0 6px;
+      font-size: 0.98rem;
+      color: var(--navy);
+    }
+    .mini-box p, .mini-box li { font-size: 0.92rem; }
+
+    /* Callouts */
+    .callout {
+      border-radius: var(--radius-md);
+      padding: 15px 18px;
+      margin: 14px 0;
+      border-left: 4px solid;
+      font-size: 0.94rem;
+    }
+    .callout-title {
+      font-weight: 800;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .callout.tip {
+      background: var(--sage-bg);
+      border-color: var(--sage);
+    }
+    .callout.tip .callout-title { color: var(--sage); }
+    .callout.trap {
+      background: var(--terra-bg);
+      border-color: var(--terra);
+    }
+    .callout.trap .callout-title { color: var(--terra); }
+    .callout.analogy {
+      background: var(--amber-bg);
+      border-color: var(--amber);
+    }
+    .callout.analogy .callout-title { color: var(--amber); }
+    .callout.clinical {
+      background: var(--teal-bg);
+      border-color: var(--teal);
+    }
+    .callout.clinical .callout-title { color: var(--teal); }
+    .callout.formula {
+      background: var(--purple-bg);
+      border-color: var(--purple);
+    }
+    .callout.formula .callout-title { color: var(--purple); }
+
+    /* Flow pills */
+    .flow-chain {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin: 12px 0;
+      padding: 14px;
+      background: var(--bg-subtle);
+      border-radius: var(--radius-md);
+      border: 1px dashed var(--border);
+    }
+    .flow-step {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      border-radius: 10px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .flow-arrow {
+      color: var(--terra);
+      font-weight: 800;
+      font-size: 1rem;
+    }
+
+    /* Tables */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 14px 0;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      background: var(--bg-card);
+    }
+    th {
+      background: var(--navy-soft);
+      color: var(--navy);
+      text-align: left;
+      padding: 11px 14px;
+      font-weight: 800;
+      border-bottom: 1.5px solid var(--border);
+    }
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    tr:last-child td { border-bottom: none; }
+
+    /* SVG Diagram box */
+    .diagram-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin: 16px 0;
+      text-align: center;
+    }
+    .diagram-box svg {
+      max-width: 100%;
+      height: auto;
+    }
+    .diagram-caption {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+      font-weight: 600;
+    }
+
+    /* Numbered Steps */
+    .steps-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 10px;
+      margin: 14px 0;
+    }
+    .step-card {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .step-num {
+      flex: 0 0 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+    body.dark .step-num { color: #0f172a; }
+    .step-card p { margin: 2px 0 0; font-size: 0.88rem; color: var(--text-muted); }
+
+    /* Flashcards / Turbo Review */
+    .flashcard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 14px;
+    }
+    .flashcard {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      cursor: pointer;
+      transition: transform 0.18s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+      min-height: 155px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .flashcard:hover {
+      transform: translateY(-2px);
+      border-color: var(--purple);
+      box-shadow: var(--shadow-sm);
+    }
+    .flashcard-mod {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 8px;
+    }
+    .flashcard-q {
+      font-weight: 700;
+      font-size: 0.96rem;
+      margin-bottom: 10px;
+    }
+    .flashcard-a {
+      display: none;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--border);
+      font-size: 0.9rem;
+      color: var(--sage);
+      font-weight: 600;
+    }
+    .flashcard.revealed {
+      border-color: var(--sage-border);
+      background: var(--sage-bg);
+    }
+    .flashcard.revealed .flashcard-a { display: block; }
+    .flashcard-hint {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    .flashcard.revealed .flashcard-hint { display: none; }
+
+    /* Quiz Section */
+    .quiz-dashboard {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px 24px;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow-sm);
+    }
+    .quiz-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .stat-box {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      text-align: center;
+    }
+    .stat-val {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.1;
+    }
+    .stat-lbl {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .quiz-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .pill {
+      padding: 7px 13px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--bg-subtle);
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .pill.active {
+      background: var(--navy);
+      color: #fff;
+      border-color: var(--navy);
+    }
+    body.dark .pill.active { color: #0f172a; }
+    .action-btn {
+      padding: 8px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-main);
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.18s;
+    }
+    .action-btn:hover { background: var(--bg-subtle); }
+    .action-btn.primary {
+      background: var(--terra);
+      color: #fff;
+      border-color: var(--terra);
+    }
+    .action-btn.primary:hover { opacity: 0.92; }
+
+    /* Question Cards */
+    .q-card {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 22px 24px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow-sm);
+    }
+    .q-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .q-badge {
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--navy-soft);
+      color: var(--navy);
+    }
+    .q-diff {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+    .q-stem {
+      font-size: 1rem;
+      font-weight: 700;
+      margin: 0 0 14px;
+      line-height: 1.55;
+    }
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .opt-btn {
+      width: 100%;
+      text-align: left;
+      padding: 12px 15px;
+      border-radius: 12px;
+      border: 1.5px solid var(--border);
+      background: var(--bg-surface);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.93rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      transition: all 0.18s ease;
+      line-height: 1.45;
+    }
+    .opt-btn:hover:not(:disabled) {
+      border-color: var(--navy);
+      background: var(--navy-soft);
+      transform: translateY(-1px);
+    }
+    .opt-btn:disabled { cursor: default; }
+    .opt-letter {
+      flex: 0 0 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.82rem;
+      color: var(--navy);
+      margin-top: 1px;
+    }
+    .opt-btn.correct {
+      background: var(--sage-bg);
+      border-color: var(--sage);
+      color: var(--text-main);
+      font-weight: 600;
+    }
+    .opt-btn.correct .opt-letter {
+      background: var(--sage);
+      color: #fff;
+      border-color: var(--sage);
+    }
+    .opt-btn.wrong {
+      background: var(--danger-bg);
+      border-color: var(--danger);
+      color: var(--text-main);
+    }
+    .opt-btn.wrong .opt-letter {
+      background: var(--danger);
+      color: #fff;
+      border-color: var(--danger);
+    }
+    .q-explain {
+      display: none;
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: var(--bg-subtle);
+      border-left: 4px solid var(--sage);
+      font-size: 0.9rem;
+    }
+    .q-explain.show { display: block; animation: fadeIn 0.25s ease; }
+    .q-explain.wrong-feedback { border-left-color: var(--danger); }
+    .q-explain strong.status-ok { color: var(--sage); }
+    .q-explain strong.status-err { color: var(--danger); }
+
+    .module-nav-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 22px;
+      flex-wrap: wrap;
+    }
+
+    mark.hl {
+      background: #fde047;
+      color: #1e293b;
+      padding: 0 3px;
+      border-radius: 4px;
+    }
+
+    @media print {
+      .nav-sticky, .hero-actions, .search-bar-wrap, .check-done-btn, .module-nav-footer { display: none !important; }
+      .panel { display: block !important; page-break-after: always; }
+      body { background: #fff; color: #000; }
+      .card, .module-banner, .q-card { box-shadow: none; break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO HEADER -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-top">
+        <span class="badge-pill">🦴 Anatomia do Aparelho Locomotor • 2º Período</span>
+        <div class="hero-actions">
+          <button class="btn-ghost" id="toggleDarkBtn" type="button">🌙 Modo Escuro</button>
+          <button class="btn-ghost" onclick="window.print()" type="button">🖨️ Imprimir / PDF</button>
+        </div>
+      </div>
+      <h1>Guia Completo de Estudo & Simulado para a Prova</h1>
+      <p>Resumos descomplicados, analogias práticas, alertas de pegadinhas, diagramas visuais, flashcards e <strong>30 questões de múltipla escolha comentadas</strong> baseados integralmente nos 5 materiais da pasta de Anatomia.</p>
+
+      <div class="study-progress-wrap">
+        <div class="progress-info" id="progressText">Progresso de estudo: 0 de 5 módulos concluídos</div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-info" id="quizMiniScore">Simulado: 0/30 respondidas</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- STICKY TABS -->
+  <nav class="nav-sticky" aria-label="Navegação por módulos">
+    <div class="nav-inner">
+      <button class="tab-btn active" data-tab="mod1" type="button"><span class="done-dot"></span>1. Crescimento Ósseo</button>
+      <button class="tab-btn" data-tab="mod2" type="button"><span class="done-dot"></span>2. Tecido Muscular</button>
+      <button class="tab-btn" data-tab="mod3" type="button"><span class="done-dot"></span>3. Controle Neural</button>
+      <button class="tab-btn" data-tab="mod4" type="button"><span class="done-dot"></span>4. Funções Musculares</button>
+      <button class="tab-btn" data-tab="mod5" type="button"><span class="done-dot"></span>5. Fáscias</button>
+      <button class="tab-btn turbo-tab" data-tab="turbo" type="button">⚡ Revisão Turbo (Pegadinhas)</button>
+      <button class="tab-btn quiz-tab" data-tab="quiz" type="button">📝 Simulado (30 Questões)</button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- SEARCH BAR (for summary tabs) -->
+    <div class="search-bar-wrap" id="searchWrap">
+      <input type="search" id="searchInput" class="search-input" placeholder="🔎 Buscar termo no módulo atual (ex: estrogênio, sarcômero, Golgi, YAP, coativação, FGFR3)...">
+      <span class="search-status" id="searchStatus"></span>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- MÓDULO 1: CRESCIMENTO E DESENVOLVIMENTO DO SISTEMA ESQUELÉTICO -->
+    <!-- ========================================================= -->
+    <section id="mod1" class="panel active">
+      <div class="module-banner">
+        <div>
+          <span class="module-tag">Material 1 • Embriologia & Osteogênese</span>
+          <h2>Crescimento e Desenvolvimento do Sistema Esquelético</h2>
+          <p>Como um grupinho de células no embrião vira braços e pernas, como a cartilagem vira osso, como os ossos crescem em comprimento e por que param de crescer na puberdade.</p>
+        </div>
+        <button class="check-done-btn" data-done="mod1" type="button">☐ Marcar módulo como estudado</button>
+      </div>
+
+      <div class="card">
+        <h3>🧩 Visão Geral: Os 4 Grandes Processos Interdependentes</h3>
+        <p>O esqueleto adulto não nasce "pronto em miniatura". Ele é construído por quatro etapas que se conectam:</p>
+        <div class="flow-chain">
+          <span class="flow-step">1. Embriologia dos Membros</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-step">2. Ossificação</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-step">3. Crescimento Longitudinal</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-step">4. Fechamento Epifisário</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>1️⃣ Embriologia dos Membros (Como surgem braços e pernas)</h3>
+        <p>Nas primeiras semanas após a fecundação, formam-se os 3 folhetos germinativos (ectoderma, mesoderma e endoderma). A <strong>maior parte do sistema musculoesquelético deriva do mesoderma</strong>.</p>
+        <ul>
+          <li><strong>Quando surgem?</strong> Por volta da <strong>4ª semana de gestação</strong>, como pequenas projeções laterais chamadas <strong>brotos dos membros</strong>.</li>
+          <li><strong>Do que o broto é feito?</strong> Uma massa interna de <strong>mesênquima</strong> (células embrionárias indiferenciadas que viram cartilagem, osso, tendão e tecido conjuntivo) revestida por fora por <strong>ectoderma</strong>.</li>
+          <li><strong>E os músculos?</strong> Têm origem parcialmente distinta: células precursoras vêm dos <strong>somitos</strong> (derivados do <em>mesoderma paraxial</em>) e <strong>migram</strong> para dentro dos brotos dos membros.</li>
+        </ul>
+
+        <h4>🧭 Os 3 Eixos de Orientação (O "GPS" Molecular do Membro)</h4>
+        <div class="grid-3">
+          <div class="mini-box">
+            <h4>Proximal → Distal</h4>
+            <p>Organiza da raiz até a ponta (ombro→braço→antebraço→mão→dedos; quadril→coxa→perna→pé→dedos).</p>
+            <p><strong>Quem comanda:</strong> <strong>AER</strong> (Crista Ectodérmica Apical, na ponta do broto), secretando <strong>FGFs</strong> (especialmente <strong>FGF8</strong>), mantendo o mesênquima em proliferação.</p>
+          </div>
+          <div class="mini-box">
+            <h4>Ântero → Posterior</h4>
+            <p>Define a identidade e posição espacial de cada dedo (ex: polegar vs. mínimo).</p>
+            <p><strong>Quem comanda:</strong> <strong>ZPA</strong> (Zona de Atividade Polarizante, na região posterior), que produz a proteína <strong>Sonic Hedgehog (SHH)</strong>.</p>
+          </div>
+          <div class="mini-box">
+            <h4>Dorso → Ventral</h4>
+            <p>Diferencia a face dorsal (costas da mão/pé) da face ventral (palma da mão / planta do pé).</p>
+            <p><strong>Rede integrada:</strong> ZPA e AER conversam entre si o tempo todo — uma ajuda a manter a atividade da outra!</p>
+          </div>
+        </div>
+
+        <h4>🖐️ Condensação Mesenquimal e Escultura dos Dedos</h4>
+        <ul>
+          <li><strong>Condensação mesenquimal:</strong> células mesenquimais se agrupam onde ficarão os futuros ossos e se diferenciam em <strong>condrócitos</strong>. Ou seja, os ossos longos <strong>nascem primeiro como moldes de cartilagem</strong>!</li>
+          <li><strong>Mãos, pés e apoptose:</strong> as pontas formam "placas" com tecido entre os dedos. A <strong>apoptose</strong> (morte celular programada — não é "destruição", é <em>escultura biológica</em>!) remove o tecido interdigital para separar os dedos.</li>
+        </ul>
+        <div class="callout trap">
+          <div class="callout-title">⚠️ Correlações Clínicas (Cai muito em prova!)</div>
+          <strong>• Sindactilia:</strong> dedos permanecem unidos (falha na remoção/apoptose do tecido interdigital).<br>
+          <strong>• Polidactilia:</strong> dedos a mais (alterações nos mecanismos de número e posicionamento dos dedos, ligados ao eixo ântero-posterior/SHH).
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>2️⃣ Ossificação: Intramembranosa vs. Endocondral</h3>
+        <div class="callout trap">
+          <div class="callout-title">⚠️ Ossificação ≠ Mineralização (Calcificação)</div>
+          <strong>Mineralização:</strong> é só a deposição de minerais (cristais de cálcio e fosfato) na matriz.<br>
+          <strong>Ossificação:</strong> é a formação <em>organizada</em> de tecido ósseo verdadeiro por células especializadas!
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Característica</th>
+                <th>Ossificação Intramembranosa</th>
+                <th>Ossificação Endocondral</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Molde de cartilagem?</strong></td>
+                <td><strong>NÃO!</strong> É direta do mesênquima.</td>
+                <td><strong>SIM!</strong> Usa molde cartilaginoso temporário.</td>
+              </tr>
+              <tr>
+                <td><strong>Sequência</strong></td>
+                <td>Mesênquima → Osteoblastos → Osteoide (colágeno tipo I) → Mineralização → Osso</td>
+                <td>Mesênquima → Cartilagem (condrócitos) → Hipertrofia + VEGF → Invasão vascular → Substituição por osso</td>
+              </tr>
+              <tr>
+                <td><strong>Exemplos clássicos</strong></td>
+                <td>Ossos planos do <strong>crânio</strong> e partes da <strong>clavícula</strong>.</td>
+                <td>Maioria dos <strong>ossos longos</strong> dos membros.</td>
+              </tr>
+              <tr>
+                <td><strong>Detalhes-chave</strong></td>
+                <td>Osteoblastos aprisionados viram <strong>osteócitos</strong> (células especializadas em manutenção, comunicação e percepção mecânica — NÃO são inativas!).</td>
+                <td><strong>Centro primário</strong> na diáfise (pericôndrio forma colar ósseo; condrócitos hipertrofiados secretam <strong>VEGF</strong> que atrai vasos). Depois surgem <strong>centros secundários</strong> nas epífises, deixando a <strong>placa epifisária (fise)</strong> entre epífise e metáfise.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>3️⃣ Crescimento Longitudinal & A Placa de Crescimento (Fise)</h3>
+        <p>Enquanto a placa epifisária estiver aberta, ela fabrica cartilagem de um lado e a troca por osso do outro, fazendo o osso crescer em comprimento.</p>
+
+        <div class="diagram-box">
+          <svg viewBox="0 0 760 235" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zonas da placa epifisária">
+            <rect x="10" y="10" width="740" height="215" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+            <text x="380" y="34" text-anchor="middle" font-size="14" font-weight="800" fill="#1f335c">Organização da Placa de Crescimento (Epífise → Metáfise)</text>
+            <!-- Boxes -->
+            <rect x="30" y="54" width="155" height="115" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+            <text x="107" y="78" text-anchor="middle" font-size="12.5" font-weight="800" fill="#1e3a8a">1. Zona de Repouso</text>
+            <text x="107" y="98" text-anchor="middle" font-size="11" fill="#1e40af">Perto da epífise</text>
+            <text x="107" y="116" text-anchor="middle" font-size="11" fill="#1e40af">Reservatório celular</text>
+            <text x="107" y="134" text-anchor="middle" font-size="11" fill="#1e40af">Baixa proliferação,</text>
+            <text x="107" y="150" text-anchor="middle" font-size="11" fill="#1e40af">mas ativas!</text>
+
+            <text x="200" y="116" text-anchor="middle" font-size="20" font-weight="800" fill="#c65d28">→</text>
+
+            <rect x="215" y="54" width="165" height="115" rx="10" fill="#dcfce7" stroke="#22c55e" stroke-width="1.5"/>
+            <text x="297" y="78" text-anchor="middle" font-size="12.5" font-weight="800" fill="#14532d">2. Zona Proliferativa</text>
+            <text x="297" y="98" text-anchor="middle" font-size="11" fill="#166534">Divisão celular ativa</text>
+            <text x="297" y="116" text-anchor="middle" font-size="11" fill="#166534">Organizadas em COLUNAS</text>
+            <text x="297" y="134" text-anchor="middle" font-size="11" fill="#166534">paralelas ao eixo longo</text>
+            <text x="297" y="150" text-anchor="middle" font-size="11" fill="#166534">(Motor do crescimento)</text>
+
+            <text x="395" y="116" text-anchor="middle" font-size="20" font-weight="800" fill="#c65d28">→</text>
+
+            <rect x="410" y="54" width="165" height="115" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+            <text x="492" y="78" text-anchor="middle" font-size="12.5" font-weight="800" fill="#78350f">3. Zona Hipertrófica</text>
+            <text x="492" y="98" text-anchor="middle" font-size="11" fill="#92400e">Param de dividir e</text>
+            <text x="492" y="116" text-anchor="middle" font-size="11" fill="#92400e">AUMENTAM DE TAMANHO</text>
+            <text x="492" y="134" text-anchor="middle" font-size="11" fill="#92400e">Expansão da placa +</text>
+            <text x="492" y="150" text-anchor="middle" font-size="11" fill="#92400e">mineralização + VEGF</text>
+
+            <text x="590" y="116" text-anchor="middle" font-size="20" font-weight="800" fill="#c65d28">→</text>
+
+            <rect x="605" y="54" width="125" height="115" rx="10" fill="#fee2e2" stroke="#ef4444" stroke-width="1.5"/>
+            <text x="667" y="84" text-anchor="middle" font-size="12.5" font-weight="800" fill="#7f1d1d">4. Metáfise</text>
+            <text x="667" y="106" text-anchor="middle" font-size="11" fill="#991b1b">Invasão vascular</text>
+            <text x="667" y="124" text-anchor="middle" font-size="11" fill="#991b1b">Cartilagem vira</text>
+            <text x="667" y="142" text-anchor="middle" font-size="11" font-weight="800" fill="#991b1b">TECIDO ÓSSEO</text>
+
+            <rect x="30" y="182" width="700" height="30" rx="8" fill="#f3e8ff" stroke="#a855f7" stroke-width="1"/>
+            <text x="380" y="201" text-anchor="middle" font-size="11.5" font-weight="700" fill="#581c87">Controle Local: Ihh → estimula PTHrP (retarda hipertrofia precoce!)  |  FGFR3 = freio (mutação ativadora → Acondroplasia)</text>
+          </svg>
+        </div>
+
+        <h4>🎛️ Quem regula a velocidade desse crescimento?</h4>
+        <div class="grid-2">
+          <div class="mini-box">
+            <h4>🔬 Regulação Local (Dentro da Placa)</h4>
+            <ul>
+              <li><strong>Circuito Ihh–PTHrP:</strong> Condrócitos em diferenciação produzem <strong>Ihh</strong> (Indian hedgehog), que estimula <strong>PTHrP</strong>. O PTHrP mantém condrócitos proliferando e <strong>retarda a hipertrofia precoce</strong> — evita que a placa se esgote cedo demais!</li>
+              <li><strong>FGF e receptor FGFR3:</strong> atua como <strong>freio (regulador negativo)</strong> do crescimento excessivo. <strong>Mutação ativadora do FGFR3</strong> deixa o freio "travado" → <strong>Acondroplasia</strong> (redução desproporcional dos membros).</li>
+            </ul>
+          </div>
+          <div class="mini-box">
+            <h4>🧪 Regulação Hormonal & Mecânica</h4>
+            <ul>
+              <li><strong>GH (adenohipófise) e IGF-1 (fígado/local):</strong> principal eixo estimulador do crescimento linear na infância.</li>
+              <li><strong>Tireoide (T3 e T4):</strong> essenciais para maturação dos condrócitos, interação com GH–IGF-1 e avanço da <strong>idade óssea</strong>.</li>
+              <li><strong>Forças mecânicas:</strong> cargas fisiológicas são normais, mas <strong>NÃO</strong> vale a regra simplista "quanto mais carga, mais cresce". Cargas excessivas/assimétricas ou lesões prejudicam a placa.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>4️⃣ Puberdade, Senescência e Fechamento Epifisário</h3>
+        <ul>
+          <li><strong>Por que o crescimento para?</strong> Antes de a placa fundir, ocorre a <strong>senescência da placa</strong>: um esgotamento progressivo (a placa afina, diminuem as células progenitoras, cai a proliferação e a velocidade de crescimento).</li>
+          <li><strong>O Paradoxo da Puberdade:</strong> os mesmos hormônios sexuais que causam o <strong>estirão puberal</strong> (aceleração inicial junto com GH–IGF-1) também aceleram a maturação esquelética que <strong>encerra</strong> o crescimento!</li>
+        </ul>
+        <div class="callout trap">
+          <div class="callout-title">🔥 PEGADINHA CAMPEÃ DE PROVA: O Papel do Estrogênio!</div>
+          <strong>ERRADO:</strong> "Testosterona fecha a placa nos homens e estrogênio fecha nas mulheres."<br>
+          <strong>CERTO:</strong> O <strong>ESTROGÊNIO</strong> é o principal responsável pelo fechamento epifisário em <strong>AMBOS OS SEXOS</strong>! Nos homens, a enzima <strong>aromatase</strong> converte parte da testosterona em <strong>estradiol</strong>. Pacientes com deficiência rara de aromatase mantêm as placas abertas por muito mais tempo!
+        </div>
+        <div class="grid-2">
+          <div class="mini-box">
+            <h4>📅 Idade Cronológica ≠ Idade Óssea</h4>
+            <p><strong>Idade cronológica:</strong> tempo desde o nascimento.<br>
+            <strong>Idade óssea:</strong> estágio de maturação do esqueleto, avaliado classicamente por <strong>radiografia da mão e do punho</strong> (aparecimento dos centros, formato das epífises e grau de fusão).</p>
+          </div>
+          <div class="mini-box">
+            <h4>🔒 Depois que fecha, não abre mais!</h4>
+            <p>Na fusão epifisária, o osso substitui a cartilagem unindo epífise e metáfise. Depois disso, <strong>GH, exercício, alongamento ou suplementos NÃO reabrem a placa</strong>. O osso adulto faz <strong>remodelamento</strong>, mas remodelamento ≠ crescimento longitudinal. E lembre: <strong>nem todas as placas fecham ao mesmo tempo!</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-nav-footer">
+        <span></span>
+        <button class="action-btn primary" onclick="goTab('mod2')" type="button">Próximo: 2. Tecido Muscular →</button>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- MÓDULO 2: TECIDO MUSCULAR -->
+    <!-- ========================================================= -->
+    <section id="mod2" class="panel">
+      <div class="module-banner">
+        <div>
+          <span class="module-tag">Material 2 • Slides Prof. Paulo Henrique Coltro</span>
+          <h2>Tecido Muscular, Contração, Energia e Tipos de Fibras</h2>
+          <p>Os 3 tipos de músculo, a estrutura do sarcômero, os 10 passos da contração muscular, como o músculo gera ATP, diferenças entre fibras Tipo I, IIa e IIx, tendões e receptores.</p>
+        </div>
+        <button class="check-done-btn" data-done="mod2" type="button">☐ Marcar módulo como estudado</button>
+      </div>
+
+      <div class="card">
+        <h3>1️⃣ Os 3 Tipos de Tecido Muscular</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Tipo Muscular</th>
+                <th>Onde fica?</th>
+                <th>Controle</th>
+                <th>Contração</th>
+                <th>Microscopia (Estriações e Célula)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Estriado Esquelético</strong></td>
+                <td>Origens e inserções em ossos</td>
+                <td><strong>Voluntário</strong></td>
+                <td>Rápida e forte</td>
+                <td><strong>Com estriações</strong>; células cilíndricas e <strong>multinucleadas</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Estriado Cardíaco</strong></td>
+                <td>Coração</td>
+                <td><strong>Involuntário</strong></td>
+                <td>Rítmica e automática</td>
+                <td><strong>Com estriações</strong>; células com <strong>discos intercalares</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Liso</strong></td>
+                <td>Órgãos (intestino, vasos sanguíneos, útero)</td>
+                <td><strong>Involuntário</strong></td>
+                <td>Lenta e sustentada</td>
+                <td><strong>Sem estriações</strong>; células <strong>fusiformes</strong> (formato de fuso)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>2️⃣ Do Macro ao Micro: A Boneca Russa do Músculo Esquelético</h3>
+        <p>Imagine o músculo como um cabo de aço cheio de cabos menores dentro, cada um encapado por tecido conjuntivo:</p>
+        <div class="flow-chain">
+          <span class="flow-step">Músculo inteiro (revestido por <u>Epimísio</u>)</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-step">Fascículo (revestido por <u>Perimísio</u>)</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-step">Fibra muscular / célula (revestida por <u>Endomísio</u>; membrana = <u>Sarcolema</u>)</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-step">Miofibrila</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-step">Sarcômero (Actina + Miosina)</span>
+        </div>
+
+        <div class="diagram-box">
+          <svg viewBox="0 0 740 175" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Estrutura do Sarcômero">
+            <rect x="10" y="10" width="720" height="155" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+            <text x="370" y="34" text-anchor="middle" font-size="14" font-weight="800" fill="#1f335c">Sarcômero = Unidade Contrátil (de uma Linha Z até a próxima Linha Z)</text>
+            <!-- Z lines -->
+            <line x1="90" y1="55" x2="90" y2="125" stroke="#1e3a8a" stroke-width="5"/>
+            <line x1="650" y1="55" x2="650" y2="125" stroke="#1e3a8a" stroke-width="5"/>
+            <text x="90" y="144" text-anchor="middle" font-size="11.5" font-weight="800" fill="#1e3a8a">Linha Z</text>
+            <text x="650" y="144" text-anchor="middle" font-size="11.5" font-weight="800" fill="#1e3a8a">Linha Z</text>
+            <!-- Band highlights -->
+            <rect x="93" y="54" width="107" height="72" fill="#e0f2fe" opacity="0.65"/>
+            <rect x="200" y="54" width="340" height="72" fill="#fee2e2" opacity="0.55"/>
+            <rect x="540" y="54" width="107" height="72" fill="#e0f2fe" opacity="0.65"/>
+            <!-- Thin filaments (Actina) -->
+            <line x1="90" y1="68" x2="310" y2="68" stroke="#0284c7" stroke-width="3"/>
+            <line x1="90" y1="90" x2="310" y2="90" stroke="#0284c7" stroke-width="3"/>
+            <line x1="90" y1="112" x2="310" y2="112" stroke="#0284c7" stroke-width="3"/>
+            <line x1="430" y1="68" x2="650" y2="68" stroke="#0284c7" stroke-width="3"/>
+            <line x1="430" y1="90" x2="650" y2="90" stroke="#0284c7" stroke-width="3"/>
+            <line x1="430" y1="112" x2="650" y2="112" stroke="#0284c7" stroke-width="3"/>
+            <!-- Thick filaments (Miosina) -->
+            <line x1="200" y1="79" x2="540" y2="79" stroke="#dc2626" stroke-width="6" stroke-linecap="round"/>
+            <line x1="200" y1="101" x2="540" y2="101" stroke="#dc2626" stroke-width="6" stroke-linecap="round"/>
+            <!-- Labels -->
+            <text x="146" y="144" text-anchor="middle" font-size="11" font-weight="700" fill="#0369a1">Banda I (clara: só Actina)</text>
+            <text x="370" y="144" text-anchor="middle" font-size="11.5" font-weight="800" fill="#b91c1c">Banda A (escura: Miosina + sobreposição de Actina)</text>
+            <text x="594" y="144" text-anchor="middle" font-size="11" font-weight="700" fill="#0369a1">Banda I</text>
+          </svg>
+          <div class="diagram-caption">Teoria dos Filamentos Deslizantes: na contração, a Miosina puxa a Actina para o centro → o sarcômero encurta, MAS os filamentos em si não diminuem de comprimento!</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>3️⃣ Os 10 Passos da Contração Muscular (Decorar na ordem fica fácil!)</h3>
+        <div class="steps-list">
+          <div class="step-card"><span class="step-num">1</span><div><strong>Estímulo nervoso</strong><p>Motoneurônio dispara potencial de ação até a <strong>placa motora</strong>.</p></div></div>
+          <div class="step-card"><span class="step-num">2</span><div><strong>Liberação de Acetilcolina (ACh)</strong><p>ACh cai na fenda sináptica e se liga aos receptores da fibra muscular.</p></div></div>
+          <div class="step-card"><span class="step-num">3</span><div><strong>Despolarização da Fibra</strong><p>Entrada de <strong>Na⁺</strong> gera potencial de ação muscular no <strong>sarcolema</strong>.</p></div></div>
+          <div class="step-card"><span class="step-num">4</span><div><strong>Propagação nos Túbulos T</strong><p>O sinal elétrico corre pelo sarcolema e mergulha pelos <strong>Túbulos T (transversos)</strong>.</p></div></div>
+          <div class="step-card"><span class="step-num">5</span><div><strong>Liberação de Cálcio (Ca²⁺)</strong><p>O <strong>retículo sarcoplasmático</strong> libera <strong>Ca²⁺</strong> no interior da fibra.</p></div></div>
+          <div class="step-card"><span class="step-num">6</span><div><strong>Exposição dos sítios da Actina</strong><p><strong>Ca²⁺</strong> liga-se à <strong>troponina</strong> → desloca a <strong>tropomiosina</strong> → libera os sítios de ligação na actina.</p></div></div>
+          <div class="step-card"><span class="step-num">7</span><div><strong>Formação da Ponte Cruzada</strong><p>A cabeça da <strong>miosina</strong> se acopla à actina.</p></div></div>
+          <div class="step-card"><span class="step-num">8</span><div><strong>Golpe de Força (Power Stroke)</strong><p>A miosina puxa a actina → <strong>encurtamento do sarcômero</strong>.</p></div></div>
+          <div class="step-card"><span class="step-num">9</span><div><strong>Desligamento da Ponte</strong><p>Uma nova molécula de <strong>ATP</strong> entra e faz a miosina se soltar da actina!</p></div></div>
+          <div class="step-card"><span class="step-num">10</span><div><strong>Reativação da Miosina</strong><p>O ATP é quebrado (ADP + Pi), rearmando a cabeça da miosina para puxar de novo.</p></div></div>
+        </div>
+        <div class="callout analogy">
+          <div class="callout-title">💡 Macete para nunca errar Troponina vs. Tropomiosina</div>
+          Pense na <strong>Tropomiosina</strong> como a "fita" que tampa a fechadura da actina, e na <strong>Troponina</strong> como o "cadeado" onde o <strong>Cálcio (Ca²⁺)</strong> é a chave! Sem ATP no passo 9, a miosina fica travada na actina (é por isso que ocorre o rigor mortis!).
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>4️⃣ De onde vem a energia? (Os 4 Sistemas Energéticos)</h3>
+        <div class="grid-2">
+          <div class="mini-box">
+            <h4>💵 1. ATP Imediato</h4>
+            <p><code>ATP → ADP + Pi + energia</code><br>
+            Já está pronto dentro da fibra. <em>"É o dinheiro que já está na carteira: gasto na hora, mas tem pouco!"</em> Sustenta só os primeiros instantes.</p>
+          </div>
+          <div class="mini-box">
+            <h4>⚡ 2. Sistema Fosfagênio — Fosfocreatina (PCr/CP)</h4>
+            <p><code>Fosfocreatina + ADP —(CK)→ ATP + creatina</code><br>
+            <strong>Atenção:</strong> ela NÃO dá energia direta para a contração! Ela doa um fosfato para o ADP (via enzima <strong>CK</strong>) reconstruir ATP. Ideal para esforços <strong>muito intensos e curtíssimos</strong> (segundos): peso máximo, salto vertical, arrancada, transferência de paciente.</p>
+          </div>
+          <div class="mini-box">
+            <h4>🏃 3. Sistema Glicolítico (Glicólise)</h4>
+            <p><code>Glicose → 2 piruvatos + ATP + NADH</code><br>
+            Acontece no <strong>citoplasma</strong> da fibra muscular (anaeróbio — sem O₂). Quebra glicose rapidamente para produzir ATP em esforços curtos/médios intensos.</p>
+          </div>
+          <div class="mini-box">
+            <h4>🔋 4. Metabolismo Oxidativo (Aeróbio)</h4>
+            <p>Usa <strong>O₂</strong> + <strong>carboidratos e gorduras</strong> principalmente nas <strong>mitocôndrias</strong>. Produz ATP mais devagar, porém em <strong>grande quantidade</strong> → principal sistema para atividades prolongadas.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>5️⃣ Tipos de Fibras Musculares: Tipo I, IIa e IIx</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Característica</th>
+                <th>🔴 Tipo I (Lentas)</th>
+                <th>🟡 Tipo IIa (Rápidas Oxidativas-Glicolíticas)</th>
+                <th>🟢 Tipo IIx (Rápidas Glicolíticas)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Velocidade / Força</strong></td>
+                <td>Contração lenta / Menor força e potência</td>
+                <td>Contração rápida / Alta força e potência</td>
+                <td>Contração <strong>muito rápida</strong> / Força e potência <strong>máximas</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Resistência à fadiga</strong></td>
+                <td><strong>Alta</strong> (trabalham por longos períodos)</td>
+                <td><strong>Intermediária / Moderada</strong> (versáteis!)</td>
+                <td><strong>Baixa</strong> (fadigam rápido)</td>
+              </tr>
+              <tr>
+                <td><strong>Metabolismo</strong></td>
+                <td>Predominantemente <strong>oxidativo (aeróbio)</strong></td>
+                <td><strong>Misto</strong> (oxidativo + glicolítico)</td>
+                <td><strong>Anaeróbio</strong> (glicolítico + fosfagênio)</td>
+              </tr>
+              <tr>
+                <td><strong>Mitocôndrias e Capilares</strong></td>
+                <td>Muitas mitocôndrias / Alta vascularização</td>
+                <td>Muitas mitocôndrias / Boa vascularização</td>
+                <td>Poucas mitocôndrias / Menor vascularização</td>
+              </tr>
+              <tr>
+                <td><strong>Mioglobina e Cor</strong></td>
+                <td>Alta mioglobina → <strong>Vermelha</strong></td>
+                <td>Boa mioglobina → <strong>Vermelho-rosada</strong></td>
+                <td>Baixa mioglobina → <strong>Clara / Esbranquiçada</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Diâmetro da Fibra</strong></td>
+                <td><strong>Menor</strong> (mais finas)</td>
+                <td><strong>Intermediário</strong></td>
+                <td><strong>Maior</strong> (mais grossas)</td>
+              </tr>
+              <tr>
+                <td><strong>Exemplos de Atividades</strong></td>
+                <td>Caminhada, corrida longa, ciclismo prolongado, <strong>manutenção da postura</strong></td>
+                <td>Corrida média, futebol/basquete/vôlei, subir escadas, saltos repetidos, natação intensa</td>
+                <td>Sprints curtos, levantamento de peso máximo, saltos explosivos, arremessos, chutes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>6️⃣ Tendão & Ponte para os Receptores</h3>
+        <ul>
+          <li><strong>Tendão:</strong> tecido conjuntivo denso que liga músculo ao osso. Feito de fibras de <strong>colágeno tipo I</strong> organizadas em <strong>paralelo</strong>, produzidas pelos <strong>tenócitos</strong>.</li>
+          <li><strong>Propriedades-chave:</strong> altíssima resistência à tração, <strong>pouco vascularizado</strong> (cicatrização mais lenta!), transmite força muscular e <strong>armazena energia elástica</strong>.</li>
+          <li><strong>Receptores proprioceptivos destacados nos slides:</strong> <strong>Fuso Muscular</strong> (dentro do músculo → detecta <em>alongamento</em>; mantém tônus e reflexos rápidos) e <strong>Órgão Tendinoso de Golgi</strong> (junção músculo-tendão, em série → detecta <em>tensão/força</em>; controle fino da força como segurar um copo sem esmagar, modulação do tônus e proteção). Vamos aprofundar ambos no Módulo 3!</li>
+        </ul>
+      </div>
+
+      <div class="module-nav-footer">
+        <button class="action-btn" onclick="goTab('mod1')" type="button">← Anterior: Crescimento Ósseo</button>
+        <button class="action-btn primary" onclick="goTab('mod3')" type="button">Próximo: 3. Controle Neural →</button>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- MÓDULO 3: CONTROLE NEURAL DO MOVIMENTO -->
+    <!-- ========================================================= -->
+    <section id="mod3" class="panel">
+      <div class="module-banner">
+        <div>
+          <span class="module-tag">Material 3 • Neurofisiologia Motora</span>
+          <h2>Controle Neural do Movimento</h2>
+          <p>Feedforward vs. Feedback, Fuso Muscular (α e γ), Órgão Tendinoso de Golgi (Ib), Propriocepção vs. Equilíbrio, Reflexos (Patelar, Retirada, Extensão Cruzada), Tônus e Espasticidade.</p>
+        </div>
+        <button class="check-done-btn" data-done="mod3" type="button">☐ Marcar módulo como estudado</button>
+      </div>
+
+      <div class="card">
+        <h3>1️⃣ Base do Controle Motor: Vias e Estratégias</h3>
+        <div class="grid-2">
+          <div class="mini-box">
+            <h4>📡 Aferência vs. Eferência</h4>
+            <p>• <strong>SNC:</strong> encéfalo + medula espinal. <strong>SNP:</strong> nervos que ligam o SNC aos receptores e músculos.<br>
+            • <strong>Aferência ("chega"):</strong> informação sensorial da periferia → SNC.<br>
+            • <strong>Eferência ("sai"):</strong> comando motor do SNC → músculo (via <strong>motoneurônios</strong>).</p>
+          </div>
+          <div class="mini-box">
+            <h4>🔮 Feedforward vs. 🔄 Feedback</h4>
+            <p>• <strong>Feedforward (antecipatório):</strong> prepara a ação <em>antes</em> usando previsões/experiências (ex: estimar o peso de uma caixa antes de levantar).<br>
+            • <strong>Feedback (retroalimentação):</strong> corrige <em>durante</em> com base nos sinais sensoriais (ex: a caixa era muito mais pesada ou o degrau era mais baixo!).<br>
+            <em>Os dois trabalham JUNTOS — não competem!</em></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>2️⃣ Fuso Muscular vs. Órgão Tendinoso de Golgi (OTG)</h3>
+
+        <div class="diagram-box">
+          <svg viewBox="0 0 740 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Comparação Fuso Muscular e Órgão Tendinoso de Golgi">
+            <rect x="10" y="10" width="720" height="190" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+            <!-- Left: Fuso -->
+            <rect x="28" y="26" width="328" height="158" rx="12" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
+            <text x="192" y="50" text-anchor="middle" font-size="13.5" font-weight="800" fill="#0c4a6e">FUSO MUSCULAR (Em PARALELO)</text>
+            <text x="192" y="72" text-anchor="middle" font-size="11.5" fill="#0369a1">📍 Dentro do ventre muscular (fibras intrafusais)</text>
+            <text x="192" y="92" text-anchor="middle" font-size="11.5" font-weight="700" fill="#0c4a6e">Detecta: COMPRIMENTO + VELOCIDADE de alongamento</text>
+            <text x="192" y="114" text-anchor="middle" font-size="11" fill="#0369a1">Aferências: Grupo Ia (primárias: compr. + veloc.)</text>
+            <text x="192" y="131" text-anchor="middle" font-size="11" fill="#0369a1">&amp; Grupo II (secundárias: comprimentos mantidos)</text>
+            <text x="192" y="154" text-anchor="middle" font-size="11" font-weight="700" fill="#1e3a8a">Regulado por motoneurônios GAMA (γ)</text>
+            <text x="192" y="171" text-anchor="middle" font-size="10.5" fill="#1e40af">(Coativação α–γ evita que o fuso fique frouxo!)</text>
+
+            <!-- Right: OTG -->
+            <rect x="384" y="26" width="328" height="158" rx="12" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+            <text x="548" y="50" text-anchor="middle" font-size="13.5" font-weight="800" fill="#78350f">ÓRGÃO TENDINOSO DE GOLGI (Em SÉRIE)</text>
+            <text x="548" y="72" text-anchor="middle" font-size="11.5" fill="#92400e">📍 Transição músculo-tendão (feixes de colágeno)</text>
+            <text x="548" y="92" text-anchor="middle" font-size="11.5" font-weight="700" fill="#78350f">Detecta: TENSÃO / FORÇA transmitida ao tendão</text>
+            <text x="548" y="114" text-anchor="middle" font-size="11" fill="#92400e">Aferência principal: Grupo Ib</text>
+            <text x="548" y="134" text-anchor="middle" font-size="11" fill="#92400e">Circuito clássico: Inibição autogênica (via interneurônio)</text>
+            <text x="548" y="156" text-anchor="middle" font-size="11" font-weight="700" fill="#b45309">⚠️ NÃO é só "disjuntor contra ruptura"!</text>
+            <text x="548" y="171" text-anchor="middle" font-size="10.5" fill="#92400e">Vias Ib podem ser inibitórias OU facilitadoras</text>
+          </svg>
+        </div>
+
+        <h4>🔎 Detalhes importantes que o professor adora cobrar:</h4>
+        <ul>
+          <li><strong>Extrafusal vs. Intrafusal:</strong> <em>Extrafusal</em> = fora do fuso (produz força; inervada por <strong>motoneurônios alfa α</strong>). <em>Intrafusal</em> = dentro do fuso (divididas em fibras de <strong>saco nuclear</strong> [dinâmicas e estáticas] e de <strong>cadeia nuclear</strong>; extremidades inervadas por <strong>motoneurônios gama γ</strong>).</li>
+          <li><strong>Por que existe a Coativação Alfa–Gama?</strong> Se só o motoneurônio α disparasse, o músculo encurtaria e o fuso ficaria "frouxo", ficando cego durante a contração! A ativação γ simultânea ajusta a tensão interna do fuso, mantendo sua sensibilidade ativa o tempo todo.</li>
+          <li><strong>Sobre Ia e II:</strong> dizer "Ia é dinâmica e II é estática" serve como primeira aproximação, mas <strong>não é regra absoluta</strong> — ambas informam o estado mecânico muscular com padrões diferentes.</li>
+          <li><strong>Sobre o OTG:</strong> reduzir o OTG a um simples "interruptor contra rupturas" é simplificação excessiva! Dependendo da tarefa e da fase da marcha, aferências <strong>Ib</strong> podem participar de respostas <strong>inibitórias OU facilitadoras</strong>.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>3️⃣ Propriocepção, Vias Centrais e Equilíbrio</h3>
+        <p><strong>Propriocepção</strong> é perceber posição, movimento, força e esforço sem depender da visão (ex: fechar os olhos e tocar a ponta do nariz). Mas atenção: ela tem <strong>4 dimensões que NÃO são sinônimos</strong>:</p>
+        <div class="grid-2">
+          <div class="mini-box">
+            <h4>📍 Senso de Posição Articular</h4>
+            <p>Saber onde o segmento está parado (ex: reproduzir um ângulo do joelho de olhos fechados).</p>
+          </div>
+          <div class="mini-box">
+            <h4>🏃 Cinestesia</h4>
+            <p>Perceber o <strong>movimento</strong>, direção e deslocamento (ex: detectar a direção de um movimento passivo).</p>
+          </div>
+          <div class="mini-box">
+            <h4>💪 Percepção de Força vs. Sensação de Esforço</h4>
+            <p><em>Força:</em> estimativa da força aplicada/produzida.<br>
+            <em>Esforço:</em> ligada também à intensidade do <strong>comando motor central</strong>.</p>
+          </div>
+          <div class="mini-box">
+            <h4>🧠 Como chega ao cérebro?</h4>
+            <p>Corpos celulares nos <strong>gânglios das raízes dorsais</strong>.<br>
+            • <strong>Colunas dorsais</strong> → tronco → tálamo → <strong>córtex somatossensorial</strong> (percepção consciente).<br>
+            • <strong>Tratos espinocerebelares</strong> → <strong>cerebelo</strong> (comparação, precisão, temporização e adaptação).<br>
+            <em>Função distribuída em redes (não fica num único "cantinho"!).</em></p>
+          </div>
+        </div>
+        <div class="callout clinical">
+          <div class="callout-title">🩺 Visão Clínica (Fisioterapia) — Reponderação Sensorial & Equilíbrio</div>
+          • <strong>Reponderação sensorial:</strong> se você fecha os olhos ou pisa em um colchão instável, o SNC muda o "peso" que dá à visão, ao sistema vestibular e à propriocepção.<br>
+          • <strong>PEGADINHA CLÍNICA:</strong> Ficar em pé sobre uma perna avalia <strong>equilíbrio</strong>, que <strong>NÃO é sinônimo de acurácia proprioceptiva</strong>! Oscilar em pé pode ser fraqueza muscular, problema vestibular, alteração cerebelar ou perda proprioceptiva. Melhorar o equilíbrio não prova, sozinho, melhora de todos os componentes da propriocepção.
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>4️⃣ Reflexos, Tônus e Espasticidade</h3>
+        <p><strong>Arco reflexo:</strong> <code>Receptor → Neurônio aferente → Circuito no SNC → Neurônio eferente → Órgão efetor</code>. Pode ser <strong>monossináptico</strong> (sinapse direta aferente–motoneurônio) ou <strong>polissináptico</strong> (tem interneurônios no meio). Lembre: <strong>"automático" NÃO significa "imutável"</strong> — vias descendentes modulam os reflexos conforme a tarefa!</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Reflexo / Mecanismo</th>
+                <th>Como funciona?</th>
+                <th>Ponto-chave de Prova</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Reflexo Miotático / Estiramento (Ex: Patelar)</strong></td>
+                <td>Martelo percute ligamento patelar → estira quadríceps → aferência <strong>Ia</strong> entra na medula (<strong>L2–L4</strong>) → sinapse excitatória direta no motoneurônio α → contração do quadríceps (extensão do joelho).</td>
+                <td>Possui componente central <strong>monossináptico</strong>. Alteração isolada no reflexo NÃO localiza sozinha a lesão (precisa cruzar com força, sensibilidade, tônus).</td>
+              </tr>
+              <tr>
+                <td><strong>Inibição Recíproca</strong></td>
+                <td>Aferências <strong>Ia</strong> ativam interneurônios inibitórios que diminuem a excitabilidade do músculo <strong>antagonista</strong>.</td>
+                <td><strong>NÃO é obrigatória</strong> em todo movimento! Quando a articulação precisa de estabilidade, ocorre <strong>coativação</strong> simultânea.</td>
+              </tr>
+              <tr>
+                <td><strong>Reflexo de Retirada + Extensão Cruzada</strong></td>
+                <td>Pisar em algo pontiagudo → aferências nociceptivas ativam circuito <strong>polissináptico</strong> que flexiona a perna machucada E cruza a medula para estender a perna oposta (sustentar o peso).</td>
+                <td>Mostra que reflexos organizam múltiplos músculos nos <strong>dois lados do corpo</strong>.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout trap">
+          <div class="callout-title">⚠️ Tônus Muscular vs. Espasticidade vs. Contratura</div>
+          • <strong>Tônus:</strong> percebido clinicamente como resistência à mobilização passiva — inclui <em>componentes neurais + propriedades mecânicas</em> dos músculos e conjuntivos.<br>
+          • <strong>Espasticidade:</strong> após lesões do SNC (alteração do controle descendente), ocorre aumento <strong>dependente da velocidade</strong> da resposta ao alongamento (quanto mais rápido estira, mais resiste) + hiperreflexia.<br>
+          • <strong>Cuidado:</strong> NEM toda resistência ao movimento passivo é espasticidade! <strong>Contraturas</strong> e mudanças teciduais também limitam a mobilidade.
+        </div>
+      </div>
+
+      <div class="module-nav-footer">
+        <button class="action-btn" onclick="goTab('mod2')" type="button">← Anterior: Tecido Muscular</button>
+        <button class="action-btn primary" onclick="goTab('mod4')" type="button">Próximo: 4. Funções Musculares →</button>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- MÓDULO 4: FUNÇÕES MUSCULARES NO MOVIMENTO HUMANO -->
+    <!-- ========================================================= -->
+    <section id="mod4" class="panel">
+      <div class="module-banner">
+        <div>
+          <span class="module-tag">Material 4 • Cinesiologia & Biomecânica</span>
+          <h2>Funções Musculares no Movimento Humano</h2>
+          <p>Agonistas, Antagonistas, Sinergistas e Estabilizadores — entendendo de forma prática como os músculos trabalham em equipe, sem cair em classificações engessadas.</p>
+        </div>
+        <button class="check-done-btn" data-done="mod4" type="button">☐ Marcar módulo como estudado</button>
+      </div>
+
+      <div class="card">
+        <h3>🔑 Regras de Ouro da Biomecânica Muscular</h3>
+        <ul>
+          <li><strong>Produzir tensão ≠ produzir encurtamento/movimento:</strong> o músculo pode encurtar (<strong>concêntrica</strong>), alongar controlando a carga (<strong>excêntrica</strong>) ou manter o ângulo articular parado (<strong>isométrica</strong> — mesmo podendo haver pequenos ajustes internos em fascículos e tendões).</li>
+          <li><strong>Torque (Momento de Força):</strong> quando a força muscular atua a uma distância do eixo articular (<em>braço de momento</em>), gera torque. Um músculo mais forte nem sempre contribui mais: depende também da posição articular e do braço de momento!</li>
+          <li><strong>Os papéis NÃO são permanentes!</strong> Um mesmo músculo pode ser agonista em um movimento, antagonista em outro e estabilizador em um terceiro.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>🎭 Os 4 Papéis Musculares Explicados com Exemplos Claros</h3>
+        <div class="grid-2">
+          <div class="mini-box">
+            <h4>1. Agonistas (Motores Primários)</h4>
+            <p>Responsáveis pelo <strong>torque predominante</strong> para produzir OU controlar a tarefa.</p>
+            <p><strong>Exemplos (Cuidado com a excêntrica!):</strong><br>
+            • <em>Subir um halter (flexão do cotovelo):</em> flexores do cotovelo são agonistas em ação <strong>concêntrica</strong>.<br>
+            • <em>Abaixar devagar o mesmo halter (extensão do cotovelo):</em> os <strong>flexores CONTINUAM sendo os agonistas</strong>, agora em ação <strong>excêntrica</strong> (freiando a gravidade)!<br>
+            • <em>Agachamento:</em> extensores de quadril e joelho são agonistas tanto na subida (concêntrica) quanto na descida controlada (excêntrica).</p>
+          </div>
+
+          <div class="mini-box">
+            <h4>2. Antagonistas (Freio e Controle Ativo)</h4>
+            <p>Têm capacidade de gerar torque oposto ao agonista — mas <strong>NÃO ficam "desligados"</strong>!</p>
+            <p><strong>Funções ativas (Latash, 2023):</strong><br>
+            • <strong>Frenagem em movimentos rápidos:</strong> numa extensão rápida do cotovelo (tríceps), os flexores disparam no final para desacelerar e proteger a articulação.<br>
+            • <strong>Coativação (cocontração):</strong> contração simultânea de opostos → aumenta <strong>rigidez articular</strong>, estabilidade e precisão (muito usada ao aprender um movimento novo!). <em>Excesso:</em> eleva gasto energético e compressão articular.</p>
+          </div>
+
+          <div class="mini-box">
+            <h4>3. Sinergistas (Trabalho em Equipe)</h4>
+            <p>Colaboram com outros músculos de duas formas clássicas + visão moderna:</p>
+            <ul>
+              <li><strong>Soma/auxílio na mesma direção:</strong> braquial + bíceps braquial + braquiorradial dividem a força na flexão do cotovelo.</li>
+              <li><strong>Sinergismo neutralizador:</strong> anula ações indesejadas! Ex: na flexão do punho, o <em>flexor radial do carpo</em> (flexão + desvio radial) e o <em>flexor ulnar do carpo</em> (flexão + desvio ulnar) se cancelam nos desvios → geram flexão pura!</li>
+              <li><strong>Sinergias no controle motor moderno:</strong> padrões coordenados de múltiplos músculos (estudados por EMG multicanal), adaptáveis com aprendizagem.</li>
+            </ul>
+          </div>
+
+          <div class="mini-box">
+            <h4>4. Estabilizadores (Base Segura e Dinâmica)</h4>
+            <p>Mantêm segmentos/articulações em posição adequada para outros músculos agirem com eficiência.</p>
+            <p><strong>Estabilidade ≠ Imobilidade!</strong> Eles ajustam a tensão dinamicamente durante o movimento (Clark, 2024: integração de ligamentos/cápsula + controle neuromuscular + propriocepção).</p>
+            <ul>
+              <li><strong>Escápula:</strong> serrátil anterior e trapézio (ao elevar o braço).</li>
+              <li><strong>Ombro (Manguito Rotador):</strong> supraespinal, infraespinal, redondo menor e subescapular (centralização dinâmica da cabeça do úmero na glenoide).</li>
+              <li><strong>Lombopélvica:</strong> transverso do abdome, oblíquos, multífidos, eretores da espinha.</li>
+              <li><strong>Glúteo médio:</strong> agonista na abdução deitado, mas <strong>estabilizador da pelve</strong> no apoio unipodal da marcha!</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout tip">
+          <div class="callout-title">✅ Checklist de 5 Perguntas para Acertar Qualquer Questão de Função Muscular</div>
+          Antes de responder qual é o papel de um músculo, pergunte:<br>
+          <strong>1.</strong> Qual movimento está sendo analisado? &nbsp;
+          <strong>2.</strong> Qual força externa está atuando (ex: gravidade)? &nbsp;
+          <strong>3.</strong> Qual articulação está envolvida? &nbsp;
+          <strong>4.</strong> Qual a direção do torque muscular necessário? &nbsp;
+          <strong>5.</strong> Qual a contribuição de cada músculo para a tarefa?
+        </div>
+
+        <div class="callout clinical">
+          <div class="callout-title">🩺 Aplicação na Fisioterapia</div>
+          Mesmo quando um movimento parece "de uma articulação só" (como rosca bíceps em pé), ele envolve ombro, cintura escapular, tronco e membros inferiores! Além disso, um paciente pode ter <strong>força isolada normal</strong> nos músculos e ainda assim caminhar mal por <strong>alteração na coordenação/sinergia muscular</strong>.
+        </div>
+      </div>
+
+      <div class="module-nav-footer">
+        <button class="action-btn" onclick="goTab('mod3')" type="button">← Anterior: Controle Neural</button>
+        <button class="action-btn primary" onclick="goTab('mod5')" type="button">Próximo: 5. Fáscias →</button>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- MÓDULO 5: FÁSCIAS -->
+    <!-- ========================================================= -->
+    <section id="mod5" class="panel">
+      <div class="module-banner">
+        <div>
+          <span class="module-tag">Material 5 • Sistema Fascial & Evidência Científica</span>
+          <h2>Fáscias: Organização, Função e Relevância para o Movimento</h2>
+          <p>Os 6 pilares científicos da fáscia (Organização, Transmissão de forças, Deslizamento, Mecanotransdução, Propriocepção e Nocicepção) + o pensamento crítico que diferencia ciência de mito na Fisioterapia.</p>
+        </div>
+        <button class="check-done-btn" data-done="mod5" type="button">☐ Marcar módulo como estudado</button>
+      </div>
+
+      <div class="card">
+        <h3>1️⃣ O que é o Sistema Fascial? (Stecco et al., 2025)</h3>
+        <p>Antigamente vistas como mero "papel de embrulho" retirado na dissecação, hoje sabemos que as fáscias são uma <strong>rede corporal multicamada e multiescalar</strong>, vascularizada, inervada e biologicamente ativa — porém, <em>nem todo tecido conjuntivo deve ser chamado indiscriminadamente de fáscia</em>.</p>
+        <div class="grid-2">
+          <div class="mini-box">
+            <h4>🗺️ Os 4 Grandes Territórios Fasciais</h4>
+            <ol>
+              <li><strong>Fáscia Superficial:</strong> no tecido subcutâneo (não é "só gordura" — tem septos e lóbulos adiposos); conecta e permite movimento entre pele e planos profundos.</li>
+              <li><strong>Fáscia Profunda (Musculoesquelética):</strong> envolve músculos e compartimentos, forma septos, retináculos e aponeuroses; integra-se ao <strong>endomísio, perimísio e epimísio</strong> (arquitetura 3D complexa — Imazato et al., 2023).</li>
+              <li><strong>Fáscia Visceral</strong></li>
+              <li><strong>Fáscia Neural</strong></li>
+            </ol>
+          </div>
+          <div class="mini-box">
+            <h4>🔬 O que significa "Multiescalar"?</h4>
+            <ul>
+              <li><strong>Macroscópica:</strong> lâminas, septos e envoltórios.</li>
+              <li><strong>Microscópica:</strong> feixes de colágeno, células, vasos e nervos.</li>
+              <li><strong>Molecular:</strong> proteínas estruturais, moléculas de adesão, glicosaminoglicanos e vias de sinalização.</li>
+            </ul>
+            <p><strong>Heterogeneidade:</strong> espessura, composição e arquitetura variam muito conforme a região do corpo!</p>
+          </div>
+        </div>
+
+        <h4>🧱 Composição e Propriedades Mecânicas</h4>
+        <ul>
+          <li><strong>Fórmula básica:</strong> <code>Tecido Conjuntivo = Células + Matriz Extracelular (MEC)</code>. A MEC tem <strong>fibras</strong> (colágeno → resistência à <em>tração</em>; elastina) + <strong>substância fundamental</strong> (água, proteoglicanos, glicoproteínas e glicosaminoglicanos, com destaque para o <strong>ácido hialurônico — HA</strong>).</li>
+          <li><strong>Células-chave:</strong> <strong>Fibroblastos</strong> (produzem e remodelam continuamente a MEC — <em>remodelamento tecidual</em>) e <strong>Fasciácitos</strong> (células especializadas em secretar <strong>ácido hialurônico</strong>).</li>
+          <li><strong>Anisotropia:</strong> o comportamento mecânico da fáscia <strong>depende da direção em que a força é aplicada</strong> (por causa da orientação dos feixes de colágeno). Não é uma borracha homogênea!</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>2️⃣ Continuidade Fascial & Transmissão Miofascial de Força</h3>
+        <p>O modelo clássico <code>músculo → tendão → osso</code> é incompleto: como as fibras se ligam ao endomísio, perimísio e epimísio, parte da força também se transmite <strong>lateralmente</strong> para tecidos vizinhos (<strong>transmissão miofascial de força</strong>).</p>
+        <div class="flow-chain">
+          <span class="flow-step">Força aplicada</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-step">Tensão mecânica (Stress = força/área)</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-step">Deformação relativa (Strain)</span>
+        </div>
+        <div class="callout trap">
+          <div class="callout-title">🔥 TRÍADE ESSENCIAL DE PROVA</div>
+          <strong>CONTINUIDADE ANATÔMICA ≠ TRANSMISSÃO MECÂNICA ≠ EFEITO CLÍNICO</strong><br>
+          • <em>Continuidade anatômica:</em> duas estruturas estão fisicamente conectadas.<br>
+          • <em>Transmissão mecânica:</em> força em uma provoca alteração mensurável na outra (ex: Procópio et al., 2025 entre latíssimo do dorso e glúteo máximo contralateral).<br>
+          • <em>Efeito clínico:</em> isso realmente gera impacto relevante em dor, função ou tratamento. (Não prova que qualquer "cadeia miofascial" funcione igual no corpo inteiro!)
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>3️⃣ Deslizamento Fascial, Cisalhamento e Viscoelasticidade</h3>
+        <ul>
+          <li><strong>Deslizamento fascial:</strong> movimento relativo entre planos teciduais (pele, subcutâneo, fáscia, músculo não se movem como bloco rígido).</li>
+          <li><strong>Cisalhamento:</strong> movimento paralelo relativo entre camadas (<em>analogia: duas cartas de baralho deslizando uma sobre a outra</em>).</li>
+          <li><strong>Equilíbrio perfeito da fáscia:</strong> camadas de <strong>colágeno</strong> dão <em>estabilidade para transmitir carga</em> + interfaces ricas em <strong>ácido hialurônico (HA)</strong> e água dão <em>mobilidade por cisalhamento</em>.</li>
+          <li><strong>Viscoelasticidade:</strong> o HA não é só um "lubrificante" — confere comportamento <strong>viscoelástico</strong> (elástico = volta à forma; viscoso = depende do <strong>tempo</strong> e da <strong>velocidade</strong> da carga!).</li>
+          <li><strong>Como medir objetivamente?</strong> Ultrassonografia dinâmica + <strong>speckle tracking</strong> (validado por Van Amstel et al., 2025).</li>
+        </ul>
+        <div class="callout trap">
+          <div class="callout-title">⚠️ Não confunda na avaliação clínica!</div>
+          <code>Limitação de ADM ≠ sensação subjetiva de rigidez ≠ resistência na palpação ≠ redução objetiva do deslizamento fascial</code>. Sentir algo "rígido" ao palpar NÃO prova aumento de colágeno, aderência ou alteração do HA!
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>4️⃣ Mecanotransdução & Proteína YAP</h3>
+        <p><strong>Mecanotransdução</strong> = processo pelo qual uma célula converte um <strong>estímulo mecânico (força)</strong> em <strong>sinalização bioquímica</strong>.</p>
+
+        <div class="diagram-box">
+          <svg viewBox="0 0 760 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Caminho da mecanotransdução">
+            <rect x="8" y="8" width="744" height="104" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+            <rect x="22" y="34" width="110" height="52" rx="10" fill="#e0f2fe" stroke="#0284c7"/>
+            <text x="77" y="56" text-anchor="middle" font-size="11.5" font-weight="800" fill="#0c4a6e">MEC</text>
+            <text x="77" y="72" text-anchor="middle" font-size="10" fill="#0369a1">Força/deformação</text>
+
+            <text x="145" y="65" text-anchor="middle" font-size="18" font-weight="800" fill="#c65d28">→</text>
+
+            <rect x="158" y="34" width="122" height="52" rx="10" fill="#dcfce7" stroke="#16a34a"/>
+            <text x="219" y="56" text-anchor="middle" font-size="11.5" font-weight="800" fill="#14532d">Integrinas</text>
+            <text x="219" y="72" text-anchor="middle" font-size="10" fill="#166534">Complexos de adesão</text>
+
+            <text x="293" y="65" text-anchor="middle" font-size="18" font-weight="800" fill="#c65d28">→</text>
+
+            <rect x="306" y="34" width="115" height="52" rx="10" fill="#fef3c7" stroke="#d97706"/>
+            <text x="363" y="56" text-anchor="middle" font-size="11.5" font-weight="800" fill="#78350f">Citoesqueleto</text>
+            <text x="363" y="72" text-anchor="middle" font-size="10" fill="#92400e">Transmissão interna</text>
+
+            <text x="434" y="65" text-anchor="middle" font-size="18" font-weight="800" fill="#c65d28">→</text>
+
+            <rect x="447" y="34" width="130" height="52" rx="10" fill="#f3e8ff" stroke="#9333ea"/>
+            <text x="512" y="56" text-anchor="middle" font-size="11.5" font-weight="800" fill="#581c87">Sinalização (YAP)</text>
+            <text x="512" y="72" text-anchor="middle" font-size="10" fill="#6b21a8">Regulador mecanossens.</text>
+
+            <text x="590" y="65" text-anchor="middle" font-size="18" font-weight="800" fill="#c65d28">→</text>
+
+            <rect x="603" y="34" width="135" height="52" rx="10" fill="#fee2e2" stroke="#dc2626"/>
+            <text x="670" y="56" text-anchor="middle" font-size="11.5" font-weight="800" fill="#7f1d1d">Núcleo / Genes</text>
+            <text x="670" y="72" text-anchor="middle" font-size="10" fill="#991b1b">Ex: COL1A1, HABP2</text>
+          </svg>
+        </div>
+
+        <p><strong>Estudo de Pirri et al. (2023):</strong> estímulo mecânico em fibroblastos da fáscia toracolombar aumentou a forma ativa da proteína <strong>YAP</strong> (<em>Yes-associated protein</em>) e elevou a expressão dos genes <strong>COL1A1</strong> (colágeno tipo I) e <strong>HABP2</strong>.</p>
+        <div class="callout trap">
+          <div class="callout-title">⚠️ Expressão Gênica ≠ Remodelamento Macroscópico!</div>
+          Aumentar a expressão do gene COL1A1 em laboratório <strong>NÃO comprova</strong> que houve deposição organizada de colágeno nem que alguns minutos de técnica manual "reorganizam a fáscia"!
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>5️⃣ & 6️⃣ Propriocepção, Nocicepção, Dor e "Liberação Miofascial"</h3>
+        <div class="grid-2">
+          <div class="mini-box">
+            <h4>🧠 Propriocepção Fascial</h4>
+            <p>A revisão de Suarez-Rodriguez et al. (2022) encontrou inervação regional diversa nas fáscias: <strong>terminações nervosas livres</strong> e corpúsculos de <strong>Pacini</strong> e <strong>Ruffini</strong>.<br>
+            <em>Cuidado:</em> encontrar nervos sugere <strong>contribuição</strong> para propriocepção — mas NÃO significa que "a fáscia é O órgão da propriocepção"!</p>
+          </div>
+          <div class="mini-box">
+            <h4>⚡ Nociceptor ≠ Nocicepção ≠ Dor</h4>
+            <ul>
+              <li><strong>Nociceptor:</strong> terminação nervosa que responde a estímulo potencialmente lesivo (mecânico, térmico ou químico).</li>
+              <li><strong>Nocicepção:</strong> processo neurofisiológico (detecção, transmissão e processamento).</li>
+              <li><strong>Dor:</strong> experiência <em>sensorial e emocional complexa</em> (depende de contexto, memória, expectativas e fatores biopsicossociais — NÃO é proporcional à lesão!).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout formula">
+          <div class="callout-title">🔥 Sensibilização Periférica</div>
+          <code>Inflamação/Lesão → Mediadores químicos → Aumento da excitabilidade do nociceptor → MENOR limiar de ativação → Maior entrada nociceptiva</code> (um estímulo pequeno passa a gerar resposta grande!).
+        </div>
+
+        <div class="callout clinical">
+          <div class="callout-title">🩺 A Principal Mensagem Científica sobre "Liberação Miofascial"</div>
+          Separe <strong>EFEITO CLÍNICO ≠ MECANISMO DO EFEITO</strong>! Quando uma técnica manual melhora o paciente, acontecem várias coisas ao mesmo tempo (estímulo de pele e mecanorreceptores, movimento articular, mudança de atividade muscular, tolerância ao movimento, modulação da dor e contexto terapêutico). Portanto, <strong>melhorar após terapia manual NÃO prova que uma "aderência fascial foi rompida"</strong>!
+        </div>
+      </div>
+
+      <div class="module-nav-footer">
+        <button class="action-btn" onclick="goTab('mod4')" type="button">← Anterior: Funções Musculares</button>
+        <button class="action-btn primary" onclick="goTab('turbo')" type="button">Ir para Revisão Turbo ⚡ →</button>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- REVISÃO TURBO: FLASHCARDS DE PEGADINHAS -->
+    <!-- ========================================================= -->
+    <section id="turbo" class="panel">
+      <div class="module-banner">
+        <div>
+          <span class="module-tag" style="background: var(--purple-bg); color: var(--purple);">⚡ Revisão de Véspera</span>
+          <h2>Flashcards Turbo — Pegadinhas Clássicas de Prova</h2>
+          <p>Clique em cada cartão para testar sua memória ativa e revelar a resposta. São os conceitos que mais derrubam estudantes nas provas!</p>
+        </div>
+        <button class="action-btn" id="revealAllCardsBtn" type="button">👁️ Revelar / Ocultar Todos</button>
+      </div>
+
+      <div class="flashcard-grid" id="flashcardGrid"></div>
+
+      <div class="module-nav-footer">
+        <button class="action-btn" onclick="goTab('mod5')" type="button">← Voltar aos Resumos</button>
+        <button class="action-btn primary" onclick="goTab('quiz')" type="button">Ir para o Simulado (30 Questões) 📝 →</button>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- SIMULADO: 30 QUESTÕES DE MÚLTIPLA ESCOLHA -->
+    <!-- ========================================================= -->
+    <section id="quiz" class="panel">
+      <div class="quiz-dashboard">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; margin-bottom:14px;">
+          <div>
+            <span class="module-tag" style="background: var(--terra-bg); color: var(--terra);">📝 Treino de Prova</span>
+            <h2 style="margin:4px 0 4px; font-size:1.45rem;">Simulado Completo de Múltipla Escolha (30 Questões)</h2>
+            <p style="margin:0; color:var(--text-muted); font-size:0.9rem;">6 questões inéditas por módulo com justificativa detalhada imediata para você aprender errando ou acertando.</p>
+          </div>
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <button class="action-btn" id="btnOnlyWrong" type="button">🎯 Refazer Erradas</button>
+            <button class="action-btn" id="btnShuffle" type="button">🔀 Embaralhar</button>
+            <button class="action-btn primary" id="btnResetQuiz" type="button">↺ Reiniciar Simulado</button>
+          </div>
+        </div>
+
+        <div class="quiz-stats">
+          <div class="stat-box">
+            <div class="stat-val" id="statAnswered">0 / 30</div>
+            <div class="stat-lbl">Respondidas</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val" id="statCorrect" style="color: var(--sage);">0</div>
+            <div class="stat-lbl">Acertos</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val" id="statWrong" style="color: var(--danger);">0</div>
+            <div class="stat-lbl">Erros</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val" id="statPct">0%</div>
+            <div class="stat-lbl">Aproveitamento</div>
+          </div>
+        </div>
+
+        <div class="quiz-controls">
+          <div class="filter-pills" id="quizFilterPills">
+            <button class="pill active" data-filter="all" type="button">Todos (30)</button>
+            <button class="pill" data-filter="mod1" type="button">1. Crescimento Ósseo (6)</button>
+            <button class="pill" data-filter="mod2" type="button">2. Tecido Muscular (6)</button>
+            <button class="pill" data-filter="mod3" type="button">3. Controle Neural (6)</button>
+            <button class="pill" data-filter="mod4" type="button">4. Funções Musculares (6)</button>
+            <button class="pill" data-filter="mod5" type="button">5. Fáscias (6)</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="quizContainer"></div>
+    </section>
+  </main>
+
+  <script>
+    // =========================================================================
+    // FLASHCARDS DATA (16 high-yield exam traps)
+    // =========================================================================
+    const FLASHCARDS = [
+      { mod: "1. Crescimento Ósseo", q: "Quem fecha a placa epifisária nos homens: testosterona ou estrogênio?", a: "ESTROGÊNIO! Em ambos os sexos, o fechamento depende da sinalização estrogênica. Nos homens, a enzima aromatase converte testosterona em estradiol." },
+      { mod: "1. Crescimento Ósseo", q: "Qual a diferença entre AER (FGF8) e ZPA (SHH) no broto do membro?", a: "AER (Crista Ectodérmica Apical, distal) secreta FGF8 e guia o eixo PROXIMAL–DISTAL. ZPA (posterior) secreta Sonic Hedgehog (SHH) e guia o eixo ÂNTERO–POSTERIOR (identidade dos dedos)." },
+      { mod: "1. Crescimento Ósseo", q: "O que faz o circuito Ihh–PTHrP e o que acontece na mutação ativadora do FGFR3?", a: "Ihh estimula PTHrP, que mantém a proliferação e retarda a hipertrofia precoce dos condrócitos. O FGFR3 é um freio do crescimento; sua mutação ativadora trava o crescimento endocondral e causa ACONDROPLASIA." },
+      { mod: "1. Crescimento Ósseo", q: "Depois que a placa epifisária fecha, GH ou alongamento conseguem fazer o osso crescer em comprimento?", a: "NÃO! Após a fusão epifisária completa, nada reabre fisiologicamente a placa. O osso adulto faz remodelamento, mas remodelamento ≠ crescimento longitudinal." },
+      { mod: "2. Tecido Muscular", q: "Qual o papel do Cálcio (Ca²⁺) e do ATP na contração muscular?", a: "O Ca²⁺ (liberado do retículo sarcoplasmático) liga-se à troponina, deslocando a tropomiosina para expor os sítios da actina. O ATP é necessário para DESLIGAR a cabeça da miosina da actina e reativá-la." },
+      { mod: "2. Tecido Muscular", q: "A fosfocreatina (PCr) fornece energia diretamente para a miosina puxar a actina?", a: "NÃO! Ela doa um fosfato para o ADP (via enzima creatina quinase — CK) para reconstruir ATP rapidamente (PCr + ADP → ATP + creatina) nos primeiros segundos de esforço máximo." },
+      { mod: "2. Tecido Muscular", q: "Compare rapidamente Fibras Tipo I, IIa e IIx.", a: "Tipo I: vermelha, fina, muitas mitocôndrias, oxidativa, alta resistência (postura/maratona). Tipo IIa: rosada, intermediária, mista (esportes coletivos). Tipo IIx: clara, grossa, glicolítica/fosfagênio, explosiva, fadiga rápido (sprint/peso máximo)." },
+      { mod: "2. Tecido Muscular", q: "Qual o colágeno e a célula produtora do tendão?", a: "Colágeno tipo I organizado em paralelo, produzido pelos tenócitos. É pouco vascularizado, muito resistente à tração e armazena energia elástica." },
+      { mod: "3. Controle Neural", q: "Por que existe a coativação alfa-gama no fuso muscular?", a: "Motoneurônios α contraem fibras extrafusais (força). Se só α disparasse, o músculo encurtaria e o fuso ficaria frouxo. Motoneurônios γ contraem as pontas intrafusais ao mesmo tempo para manter o fuso sensível!" },
+      { mod: "3. Controle Neural", q: "O Órgão Tendinoso de Golgi (OTG) serve apenas como 'interruptor contra rupturas'?", a: "NÃO! Essa é uma simplificação. Localizado em série (junção músculo-tendão, aferência Ib), ele informa tensão/força para controle fino e pode gerar respostas inibitórias (inibição autogênica) OU facilitadoras conforme a tarefa." },
+      { mod: "3. Controle Neural", q: "Ficar em pé numa perna só mede acurácia proprioceptiva?", a: "NÃO! Avalia desempenho de EQUILÍBRIO, que depende de visão, sistema vestibular, força, coordenação, cerebelo e propriocepção. Senso de posição (reproduzir ângulo) e cinestesia (detectar movimento passivo) medem dimensões específicas." },
+      { mod: "3. Controle Neural", q: "O que define a espasticidade e o que ela NÃO é?", a: "É o aumento DEPENDENTE DA VELOCIDADE da resposta ao alongamento por alteração do controle descendente (lesão do SNC). NÃO deve ser confundida automaticamente com contraturas ou rigidez tecidual." },
+      { mod: "4. Funções Musculares", q: "Ao abaixar devagar um halter (extensão do cotovelo), quem é o músculo agonista?", a: "Os FLEXORES do cotovelo (bíceps/braquial), atuando de forma EXCÊNTRICA para frear a gravidade! A direção do movimento sozinha não define o agonista — o que define é o torque predominante para controlar a tarefa." },
+      { mod: "4. Funções Musculares", q: "Dê um exemplo clássico de sinergismo neutralizador e de mudança de papel para estabilizador.", a: "Neutralizador: flexor radial do carpo + flexor ulnar do carpo cancelam os desvios radial/ulnar e fazem flexão pura do punho. Estabilizador: glúteo médio faz abdução deitado (agonista), mas estabiliza a pelve no apoio unipodal da marcha." },
+      { mod: "5. Fáscias", q: "O que significam Anisotropia e Viscoelasticidade nas fáscias?", a: "Anisotropia: resistência mecânica depende da DIREÇÃO da força (orientação do colágeno). Viscoelasticidade: resposta depende não só da força, mas também da VELOCIDADE e do TEMPO de aplicação (elástico + viscoso / ácido hialurônico)." },
+      { mod: "5. Fáscias", q: "Qual a diferença entre Nociceptor, Nocicepção e Dor — e entre Efeito Clínico e Mecanismo?", a: "Nociceptor = receptor; Nocicepção = processo neurofisiológico; Dor = experiência sensorial e emocional complexa. Já melhora após 'liberação miofascial' (efeito clínico) NÃO prova rompimento de aderência (mecanismo)!" }
+    ];
+
+    // =========================================================================
+    // QUIZ QUESTIONS (30 questions — 6 per module)
+    // =========================================================================
+    const QUESTIONS = [
+      // --- MÓDULO 1: CRESCIMENTO ÓSSEO ---
+      {
+        id: 1, mod: "mod1", modLabel: "1. Crescimento Ósseo", diff: "Média",
+        stem: "Durante o desenvolvimento embrionário dos membros (por volta da 4ª semana), qual é a combinação correta entre estrutura sinalizadora, molécula produzida e eixo corporal organizado?",
+        options: [
+          "AER produz Sonic Hedgehog (SHH) para organizar o eixo dorso-ventral.",
+          "ZPA produz FGF8 para organizar o eixo proximal-distal.",
+          "AER produz FGFs (como FGF8) para o eixo proximal-distal; ZPA produz Sonic Hedgehog (SHH) para o eixo ântero-posterior.",
+          "Os somitos produzem VEGF para formar a crista ectodérmica apical.",
+          "O endoderma forma a massa interna mesenquimal do broto do membro."
+        ],
+        correct: 2,
+        explain: "A Crista Ectodérmica Apical (AER), na ponta distal do broto, produz FGFs (especialmente FGF8) para manter a proliferação no eixo proximal-distal. A Zona de Atividade Polarizante (ZPA), na região posterior, produz SHH para o eixo ântero-posterior (identidade dos dedos). Além disso, o broto tem mesênquima (mesoderma) revestido por ectoderma, e a musculatura migra dos somitos."
+      },
+      {
+        id: 2, mod: "mod1", modLabel: "1. Crescimento Ósseo", diff: "Fácil",
+        stem: "Um recém-nascido apresenta união persistente entre o 3º e o 4º dedos da mão direita (sindactilia). Segundo a embriologia dos membros, essa condição está associada principalmente a alterações em qual processo?",
+        options: [
+          "Falha na apoptose (morte celular programada) do tecido interdigital das placas das mãos.",
+          "Excesso de ossificação intramembranosa nas falanges distais.",
+          "Hipertrofia precoce dos condrócitos na zona de repouso.",
+          "Deficiência da enzima aromatase durante o período embrionário.",
+          "Migração excessiva de células dos somitos para a placa da mão."
+        ],
+        correct: 0,
+        explain: "A individualização dos dedos depende da remoção programada do tecido interdigital por apoptose (que funciona como mecanismo de modelagem/escultura). Falhas nesse processo podem contribuir para sindactilia (dedos unidos)."
+      },
+      {
+        id: 3, mod: "mod1", modLabel: "1. Crescimento Ósseo", diff: "Média",
+        stem: "Sobre a diferença entre ossificação intramembranosa e endocondral, assinale a alternativa CORRETA:",
+        options: [
+          "A ossificação intramembranosa depende obrigatoriamente de um molde cartilaginoso prévio e forma a maioria dos ossos longos.",
+          "Ossificação e mineralização são sinônimos perfeitos, pois ambos se resumem à deposição passiva de cálcio na matriz.",
+          "Na ossificação intramembranosa (ex.: ossos planos do crânio e partes da clavícula), o mesênquima origina diretamente osteoblastos que produzem osteoide (colágeno tipo I).",
+          "Osteócitos são osteoblastos aprisionados que perdem totalmente sua função biológica após a mineralização.",
+          "Na ossificação endocondral, a invasão vascular na diáfise ocorre antes da hipertrofia dos condrócitos e independe de VEGF."
+        ],
+        correct: 2,
+        explain: "Na ossificação intramembranosa (crânio e partes da clavícula), não há molde de cartilagem: mesênquima → osteoblastos → osteoide (colágeno tipo I) → mineralização → osso. Osteócitos são altamente especializados (manutenção, comunicação e mecanopercepção), e na endocondral os condrócitos hipertrofiados produzem VEGF para atrair vasos sanguíneos."
+      },
+      {
+        id: 4, mod: "mod1", modLabel: "1. Crescimento Ósseo", diff: "Difícil",
+        stem: "Em relação à regulação local da placa de crescimento (fise), qual alternativa descreve corretamente o circuito Ihh–PTHrP e o papel do receptor FGFR3?",
+        options: [
+          "O PTHrP acelera a hipertrofia imediata de todos os condrócitos para encerrar o crescimento rapidamente.",
+          "O FGFR3 é o principal estimulador da proliferação condrocitária, e sua mutação ativadora causa gigantismo.",
+          "O circuito Ihh–PTHrP retarda a hipertrofia precoce mantendo condrócitos em proliferação, enquanto o FGFR3 atua como regulador negativo cuja mutação ativadora se relaciona à acondroplasia.",
+          "A zona de repouso é formada por condrócitos mortos e calcificados sem função biológica.",
+          "A hipertrofia dos condrócitos pouco contribui para o aumento do comprimento do osso, que depende apenas da zona de repouso."
+        ],
+        correct: 2,
+        explain: "O Ihh estimula o PTHrP, que mantém os condrócitos em proliferação e impede que todos hipertrofiem cedo demais. Já o FGFR3 funciona como um 'freio' (regulador negativo) — sua mutação ativadora reduz o crescimento endocondral e causa acondroplasia. Além disso, a hipertrofia celular contribui enormemente para a expansão longitudinal da placa!"
+      },
+      {
+        id: 5, mod: "mod1", modLabel: "1. Crescimento Ósseo", diff: "Média",
+        stem: "Um colega afirma: 'Nos meninos, é a testosterona que fecha a placa epifisária; nas meninas, é o estrogênio. E mesmo depois de fechada, o GH consegue reabrir a placa se houver exercício intenso.' Sobre essa afirmação, pode-se concluir que ela está:",
+        options: [
+          "Totalmente correta em suas duas partes.",
+          "Correta quanto aos hormônios sexuais, mas incorreta quanto à reabertura da placa pelo GH.",
+          "Incorreta quanto aos hormônios sexuais, mas correta quanto à capacidade do exercício reabrir placas fundidas.",
+          "Totalmente incorreta: o estrogênio é central no fechamento epifisário em ambos os sexos (via aromatase nos homens) e, após fusão completa, nada reabre fisiologicamente a placa.",
+          "Incorreta apenas porque a placa fecha subitamente por calcificação simples, sem processo prévio de senescência."
+        ],
+        correct: 3,
+        explain: "Pegadinha clássica! O estrogênio participa do fechamento epifisário tanto em mulheres quanto em homens (onde a aromatase converte testosterona em estradiol). Antes da fusão ocorre a senescência progressiva da placa, e depois de fundida, GH, exercício, alongamento ou suplementos NÃO reabrem a placa (o osso adulto apenas se remodela)."
+      },
+      {
+        id: 6, mod: "mod1", modLabel: "1. Crescimento Ósseo", diff: "Fácil",
+        stem: "Sobre o conceito de idade óssea e o fechamento das placas epifisárias no corpo humano, assinale a alternativa CORRETA:",
+        options: [
+          "Idade cronológica e idade óssea são sempre idênticas em crianças saudáveis.",
+          "A idade óssea estima o estágio de maturação esquelética, sendo tradicionalmente avaliada por radiografia da mão e do punho.",
+          "Todas as placas epifisárias do corpo fecham exatamente na mesma idade biológica universal.",
+          "Os hormônios tireoidianos (T3 e T4) não interferem na idade óssea nem interagem com o eixo GH–IGF-1.",
+          "Quanto maior a carga mecânica aplicada sobre a placa de crescimento, maior será sempre o crescimento longitudinal."
+        ],
+        correct: 1,
+        explain: "Idade cronológica = tempo desde o nascimento; idade óssea = maturação do esqueleto, avaliada classicamente por raio-X de mão e punho. Nem todas as placas fecham juntas, T3/T4 influenciam fortemente a maturação/idade óssea e cargas mecânicas excessivas/assimétricas podem prejudicar a placa."
+      },
+
+      // --- MÓDULO 2: TECIDO MUSCULAR ---
+      {
+        id: 7, mod: "mod2", modLabel: "2. Tecido Muscular", diff: "Fácil",
+        stem: "Assinale a alternativa que associa CORRETAMENTE o tipo de tecido muscular às suas características estruturais e funcionais:",
+        options: [
+          "Músculo liso: presente no coração, contração voluntária, possui discos intercalares.",
+          "Músculo estriado cardíaco: contração involuntária, rítmica e automática, possui estriações e discos intercalares.",
+          "Músculo estriado esquelético: células fusiformes sem estriações, contração lenta e involuntária.",
+          "Músculo liso: possui estriações evidentes e células multinucleadas inseridas nos ossos.",
+          "Músculo estriado esquelético: contração involuntária sustentada, presente em intestino e vasos."
+        ],
+        correct: 1,
+        explain: "Cardíaco = coração, involuntário, rítmico/automático, estriado, com discos intercalares. Esquelético = ossos, voluntário, rápido/forte, estriado, multinucleado. Liso = órgãos (intestino, vasos, útero), involuntário, lento/sustentado, sem estriações, células fusiformes."
+      },
+      {
+        id: 8, mod: "mod2", modLabel: "2. Tecido Muscular", diff: "Média",
+        stem: "Organizando a estrutura do músculo esquelético do nível mais externo (macroscópico) para o mais interno (microscópico), qual sequência está CORRETA?",
+        options: [
+          "Endomísio → Perimísio → Epimísio → Miofibrila → Sarcômero.",
+          "Músculo (Epimísio) → Fascículo (Perimísio) → Fibra muscular (Endomísio / Sarcolema) → Miofibrila → Sarcômero.",
+          "Fascículo (Epimísio) → Músculo (Endomísio) → Sarcômero → Miofibrila → Fibra muscular.",
+          "Sarcolema → Epimísio → Fascículo → Endomísio → Tendão.",
+          "Músculo (Perimísio) → Fibra muscular (Epimísio) → Fascículo (Endomísio) → Sarcômero."
+        ],
+        correct: 1,
+        explain: "De fora para dentro: Epimísio envolve todo o músculo → Perimísio envolve os fascículos → Endomísio envolve cada fibra muscular (cuja membrana é o sarcolema) → dentro da fibra ficam as miofibrilas → divididas em sarcômeros (de Linha Z a Linha Z)."
+      },
+      {
+        id: 9, mod: "mod2", modLabel: "2. Tecido Muscular", diff: "Média",
+        stem: "Na sequência de eventos da contração do músculo estriado esquelético, o que ocorre IMEDIATAMENTE após o potencial de ação percorrer o sarcolema e os Túbulos T?",
+        options: [
+          "Liberação de acetilcolina na fenda sináptica pela cabeça da miosina.",
+          "O retículo sarcoplasmático libera Ca²⁺, que se liga à troponina e desloca a tropomiosina, expondo os sítios de ligação da actina.",
+          "A entrada de ATP faz a troponina se desligar do sarcolema.",
+          "Os filamentos de actina e miosina diminuem de comprimento físico próprio para encurtar o sarcômero.",
+          "O cálcio se liga diretamente à miosina para impedir a formação da ponte cruzada."
+        ],
+        correct: 1,
+        explain: "Após a propagação pelos Túbulos T (passo 4), o retículo sarcoplasmático libera Ca²⁺ (passo 5), que se liga à troponina e desloca a tropomiosina para expor os sítios da actina (passo 6). Na teoria dos filamentos deslizantes, os filamentos deslizam uns sobre os outros SEM diminuir de comprimento físico."
+      },
+      {
+        id: 10, mod: "mod2", modLabel: "2. Tecido Muscular", diff: "Média",
+        stem: "Um fisioterapeuta ajuda um paciente a realizar uma transferência rápida e pesada da cama para a cadeira de rodas (esforço máximo de poucos segundos). Sobre o sistema fosfagênio (fosfocreatina — PCr) predominante nesses primeiros segundos, é CORRETO afirmar que:",
+        options: [
+          "A fosfocreatina fornece energia diretamente à cabeça da miosina, dispensando o uso de ATP.",
+          "Ocorre exclusivamente dentro das mitocôndrias e depende de alto consumo de oxigênio.",
+          "A fosfocreatina doa um fosfato ao ADP (via enzima creatina quinase — CK), reconstruindo rapidamente o ATP.",
+          "Quebra glicose no citoplasma gerando 2 piruvatos e NADH.",
+          "É o principal sistema para manter corridas de longa distância por mais de uma hora."
+        ],
+        correct: 2,
+        explain: "A fosfocreatina NÃO fornece energia diretamente para a contração: ela doa um fosfato para o ADP por ação da enzima CK (Fosfocreatina + ADP → ATP + creatina), sustentando esforços muito intensos e curtíssimos (segundos)."
+      },
+      {
+        id: 11, mod: "mod2", modLabel: "2. Tecido Muscular", diff: "Média",
+        stem: "Qual comparação entre os tipos de fibras musculares esqueléticas (Tipo I, Tipo IIa e Tipo IIx) está CORRETA?",
+        options: [
+          "Fibras Tipo I têm maior diâmetro, cor esbranquiçada e fadigam rapidamente.",
+          "Fibras Tipo IIx têm poucas mitocôndrias, baixa mioglobina (cor clara), maior diâmetro, contração muito rápida/forte e baixa resistência à fadiga.",
+          "Fibras Tipo IIa utilizam exclusivamente o sistema fosfagênio e não possuem mitocôndrias.",
+          "Fibras Tipo I são ideais para sprints curtos e levantamento de peso máximo por possuírem metabolismo anaeróbio.",
+          "Fibras Tipo IIx são especializadas na manutenção prolongada da postura."
+        ],
+        correct: 1,
+        explain: "Tipo IIx (rápidas glicolíticas): maior diâmetro, cor clara (pouca mioglobina), poucas mitocôndrias e capilares, altíssima força/velocidade, baixa resistência à fadiga (sprints, peso máximo, saltos explosivos). Tipo I: vermelhas, finas, oxidativas, postura/resistência. Tipo IIa: rosadas, intermediárias, metabolismo misto."
+      },
+      {
+        id: 12, mod: "mod2", modLabel: "2. Tecido Muscular", diff: "Fácil",
+        stem: "Sobre a estrutura e função dos tendões no sistema musculoesquelético, assinale a alternativa CORRETA:",
+        options: [
+          "São estruturas altamente vascularizadas, compostas por colágeno tipo III disposto aleatoriamente.",
+          "São formados por tecido conjuntivo denso com fibras de colágeno tipo I em paralelo (produzidas por tenócitos), pouco vascularizados, com alta resistência à tração e capacidade de armazenar energia elástica.",
+          "Contêm fibras musculares estriadas que geram contração voluntária independente.",
+          "Não transmitem força mecânica ao osso, atuando apenas como isolante térmico.",
+          "São produzidos por osteócitos e revestidos por discos intercalares."
+        ],
+        correct: 1,
+        explain: "Os tendões ligam músculo a osso, são compostos por tecido conjuntivo denso com fibras de colágeno tipo I em paralelo produzidas por tenócitos, têm alta resistência à tração, são pouco vascularizados e além de transmitir força também armazenam energia elástica."
+      },
+
+      // --- MÓDULO 3: CONTROLE NEURAL ---
+      {
+        id: 13, mod: "mod3", modLabel: "3. Controle Neural", diff: "Fácil",
+        stem: "Ao levantar uma caixa que você achava estar vazia, você prepara a força muscular antes de pegá-la. Quando percebe que ela está cheia de livros, ajusta imediatamente a força durante o movimento. Esses dois mecanismos são chamados, respectivamente, de:",
+        options: [
+          "Aferência e eferência.",
+          "Inibição recíproca e inibição autogênica.",
+          "Controle antecipatório (feedforward) e controle por retroalimentação (feedback).",
+          "Reflexo monossináptico e reflexo de extensão cruzada.",
+          "Coativação alfa-gama e reponderação sensorial."
+        ],
+        correct: 2,
+        explain: "Feedforward (antecipatório) prepara a ação antes com base em previsões/experiências; feedback (retroalimentação) usa sinais sensoriais durante a tarefa para corrigir o movimento. Eles trabalham em conjunto!"
+      },
+      {
+        id: 14, mod: "mod3", modLabel: "3. Controle Neural", diff: "Média",
+        stem: "Por que a coativação dos motoneurônios alfa (α) e gama (γ) é fundamental durante a contração muscular voluntária?",
+        options: [
+          "Porque os motoneurônios γ produzem a maior parte da força muscular nas fibras extrafusais.",
+          "Porque, ao encurtar o músculo via motoneurônio α, a ativação γ ajusta a tensão das extremidades das fibras intrafusais, evitando que o fuso fique frouxo e perca sensibilidade.",
+          "Porque os motoneurônios γ inibem o órgão tendinoso de Golgi para impedir o reflexo patelar.",
+          "Porque sem motoneurônios γ o cálcio não é liberado pelo retículo sarcoplasmático.",
+          "Porque a coativação α–γ desliga completamente a propriocepção enquanto o músculo contrai."
+        ],
+        correct: 1,
+        explain: "Motoneurônios α ativam as fibras extrafusais (geram força). Se o músculo encurtasse sem ativação γ, a região central sensorial do fuso ficaria frouxa e perderia sensibilidade. A coativação α–γ mantém o fuso calibrado durante a própria contração."
+      },
+      {
+        id: 15, mod: "mod3", modLabel: "3. Controle Neural", diff: "Difícil",
+        stem: "Comparando o Fuso Muscular e o Órgão Tendinoso de Golgi (OTG), assinale a alternativa CORRETA:",
+        options: [
+          "O fuso fica em série com o tendão e conduz sinais por fibras Ib; o OTG fica em paralelo e usa fibras Ia e II.",
+          "O OTG atua exclusivamente como um 'interruptor contra rupturas', gerando sempre relaxamento muscular completo em qualquer tarefa.",
+          "O fuso está em paralelo às fibras extrafusais (detecta comprimento e velocidade, vias Ia e II), enquanto o OTG está em série na transição músculo-tendão (detecta tensão, vias Ib), podendo participar de respostas inibitórias ou facilitadoras conforme o contexto.",
+          "As fibras Ia informam apenas comprimento estático e as fibras II informam apenas velocidade rápida, como regra absoluta.",
+          "O fuso muscular e o OTG enviam seus comandos diretamente aos ossos por meio de fibras eferentes."
+        ],
+        correct: 2,
+        explain: "Fuso = paralelo às extrafusais, comprimento/velocidade (aferências Ia e II). OTG = em série na junção músculo-tendão, tensão (aferências Ib). O material enfatiza que reduzir o OTG a 'interruptor contra rupturas' é simplificação: vias Ib podem ser inibitórias (inibição autogênica) ou facilitadoras conforme a tarefa e a fase da marcha."
+      },
+      {
+        id: 16, mod: "mod3", modLabel: "3. Controle Neural", diff: "Média",
+        stem: "Na avaliação fisioterapêutica, um paciente oscila muito ao tentar ficar em pé sobre uma perna só. Com base no material de Controle Neural, qual conclusão está CORRETA?",
+        options: [
+          "Esse teste comprova definitivamente que o único déficit do paciente é a perda de propriocepção.",
+          "Permanecer sobre uma perna avalia desempenho de equilíbrio, que depende de múltiplos sistemas (propriocepção, visão, vestibular, força, coordenação) e não é sinônimo de acurácia proprioceptiva.",
+          "Senso de posição articular, cinestesia e equilíbrio são termos exatamente sinônimos.",
+          "A propriocepção depende exclusivamente de uma única pequena área localizada no córtex visual.",
+          "Se o paciente melhorar no equilíbrio após treino, isso prova automaticamente melhora em todas as dimensões proprioceptivas."
+        ],
+        correct: 1,
+        explain: "Equilíbrio ≠ acurácia proprioceptiva! Oscilar em apoio unipodal pode refletir fraqueza, déficit vestibular, alteração cerebelar, propriocepção ou combinação de fatores. Testes específicos avaliam cada dimensão (ex: reproduzir ângulo = senso de posição; detectar direção de movimento passivo = cinestesia)."
+      },
+      {
+        id: 17, mod: "mod3", modLabel: "3. Controle Neural", diff: "Média",
+        stem: "Sobre os reflexos espinais (miotático, inibição recíproca, retirada e extensão cruzada), assinale a alternativa INCORRETA:",
+        options: [
+          "No reflexo patelar, a percussão do ligamento patelar estira o quadríceps, ativa aferências Ia (segmentos L2–L4) e gera extensão do joelho via componente central monossináptico.",
+          "No reflexo de retirada, estímulos nociceptivos ativam circuitos polissinápticos que flexionam o membro estimulado, enquanto o reflexo de extensão cruzada facilita a extensão do membro oposto para sustentar o peso.",
+          "A inibição recíproca é uma regra obrigatória em 100% dos movimentos humanos, impedindo que agonistas e antagonistas contraiam simultaneamente.",
+          "Os reflexos, embora rápidos e sem exigir decisão consciente prévia, não são imutáveis: são modulados por vias descendentes e pelo contexto da tarefa.",
+          "Uma resposta reflexa aumentada ou diminuída não identifica sozinha o local da lesão, devendo ser interpretada junto a outros sinais clínicos."
+        ],
+        correct: 2,
+        explain: "A alternativa C é INCORRETA! Agonistas e antagonistas PODEM contrair simultaneamente (coativação) quando a estabilidade articular exige. Logo, a inibição recíproca NÃO é uma regra obrigatória para todo movimento."
+      },
+      {
+        id: 18, mod: "mod3", modLabel: "3. Controle Neural", diff: "Média",
+        stem: "Ao mobilizar passivamente o cotovelo de um paciente pós-lesão do SNC, o fisioterapeuta percebe resistência aumentada. Sobre tônus e espasticidade, assinale a alternativa CORRETA:",
+        options: [
+          "Toda e qualquer resistência ao movimento passivo deve ser diagnosticada automaticamente como espasticidade.",
+          "A espasticidade envolve um aumento dependente da velocidade da resposta ao alongamento devido à alteração do controle descendente, mas contraturas e mudanças teciduais também podem causar resistência.",
+          "O tônus muscular depende apenas de componentes neurais, sem nenhuma participação mecânica de músculos e tecidos conjuntivos.",
+          "Lesões do SNC sempre eliminam completamente a atividade reflexa, nunca causando hiperreflexia.",
+          "A informação proprioceptiva consciente sobe exclusivamente pelos tratos espinocerebelares."
+        ],
+        correct: 1,
+        explain: "Tônus inclui componentes neurais + propriedades mecânicas teciduais. Espasticidade é o aumento dependente da velocidade da resposta ao alongamento (alteração descendente), mas não deve ser confundida com toda resistência (contraturas/alterações teciduais também limitam a mobilidade). Além disso, percepção consciente sobe pelas colunas dorsais (tratos espinocerebelares vão ao cerebelo)."
+      },
+
+      // --- MÓDULO 4: FUNÇÕES MUSCULARES ---
+      {
+        id: 19, mod: "mod4", modLabel: "4. Funções Musculares", diff: "Média",
+        stem: "Uma pessoa segura um halter e o ABAIXA lentamente estendendo o cotovelo contra a gravidade. Nessa fase de descida controlada, qual músculo/grupo atua como AGONISTA e qual o tipo de contração?",
+        options: [
+          "Extensores do cotovelo (tríceps) em contração concêntrica.",
+          "Flexores do cotovelo em contração excêntrica.",
+          "Extensores do cotovelo em contração excêntrica.",
+          "Flexores do cotovelo em contração concêntrica.",
+          "Nenhum músculo atua, pois apenas a gravidade controla a velocidade da descida."
+        ],
+        correct: 1,
+        explain: "Pegadinha clássica de cinesiologia! Para o halter não despencar com a gravidade, os FLEXORES do cotovelo continuam gerando o torque predominante para controlar a tarefa, enquanto se alongam (contração EXCÊNTRICA). A direção do movimento sozinha não define o agonista!"
+      },
+      {
+        id: 20, mod: "mod4", modLabel: "4. Funções Musculares", diff: "Média",
+        stem: "Durante a realização de um movimento rápido de extensão do cotovelo ou durante o aprendizado de uma tarefa motora desconhecida, qual é o papel dos músculos ANTAGONISTAS?",
+        options: [
+          "Permanecem totalmente inativos (silêncio elétrico completo) do início ao fim do movimento.",
+          "Atuam apenas na contração concêntrica para acelerar ainda mais a extensão.",
+          "Participam ativamente: ajudam na frenagem/desaceleração ao final de movimentos rápidos e realizam coativação para aumentar a rigidez e o controle articular durante tarefas novas ou de precisão.",
+          "Impedem qualquer movimento articular, sendo sempre prejudiciais ao controle motor.",
+          "Substituem os ligamentos na produção de colágeno tipo I."
+        ],
+        correct: 2,
+        explain: "Segundo Latash (2023) e a cinesiologia contemporânea, antagonistas não são passivos! Eles freiam movimentos rápidos (proteção e precisão da posição final) e fazem coativação/cocontração para aumentar estabilidade e rigidez (especialmente em movimentos não familiares — embora excesso aumente gasto energético e compressão articular)."
+      },
+      {
+        id: 21, mod: "mod4", modLabel: "4. Funções Musculares", diff: "Fácil",
+        stem: "Durante a flexão pura do punho, o flexor radial do carpo (que faz flexão + desvio radial) e o flexor ulnar do carpo (que faz flexão + desvio ulnar) atuam juntos para que seus componentes laterais se compensem. Esse mecanismo é um exemplo clássico de:",
+        options: [
+          "Inibição autogênica.",
+          "Sinergismo neutralizador.",
+          "Reflexo de extensão cruzada.",
+          "Ação isométrica isolada do antagonista.",
+          "Anisotropia tendínea."
+        ],
+        correct: 1,
+        explain: "No sinergismo neutralizador, músculos colaboram para compensar/anular componentes indesejados de movimento (os desvios radial e ulnar se cancelam, permitindo flexão do punho com menor deslocamento lateral)."
+      },
+      {
+        id: 22, mod: "mod4", modLabel: "4. Funções Musculares", diff: "Média",
+        stem: "Sobre os músculos estabilizadores, assinale a alternativa CORRETA:",
+        options: [
+          "Estabilidade funcional é sinônimo de imobilidade completa da articulação.",
+          "Músculos estabilizadores pertencem a um grupo anatômico fixo e nunca podem atuar como agonistas em outra tarefa.",
+          "O glúteo médio exemplifica a mudança de função conforme o contexto: pode ser agonista na abdução do quadril em decúbito lateral e estabilizador da pelve no apoio unipodal da marcha.",
+          "A estabilização do ombro depende exclusivamente do deltoide, sem participação do manguito rotador nem da escápula.",
+          "Os estabilizadores devem permanecer contraídos no máximo de força o dia inteiro para garantir eficiência energética."
+        ],
+        correct: 2,
+        explain: "Estabilidade ≠ imobilidade! A função estabilizadora é dinâmica e dependente do contexto: o glúteo médio é agonista na abdução deitado e estabilizador pélvico na marcha. No ombro, serrátil anterior e trapézio controlam a escápula e o manguito rotador (supraespinal, infraespinal, redondo menor e subescapular) centraliza dinamicamente a cabeça do úmero."
+      },
+      {
+        id: 23, mod: "mod4", modLabel: "4. Funções Musculares", diff: "Média",
+        stem: "No controle motor contemporâneo, qual a diferença entre o conceito tradicional de 'músculos sinergistas' e o conceito moderno de 'sinergias musculares'?",
+        options: [
+          "Não há diferença: ambos significam apenas dois músculos presos no mesmo osso.",
+          "Na visão contemporânea, sinergias representam padrões coordenados de ativação de múltiplos músculos organizados pelo SNC (frequentemente analisados por eletromiografia multicanal) que se adaptam com a aprendizagem.",
+          "Sinergias musculares modernas ocorrem apenas em músculos lisos e cardíacos.",
+          "Na visão moderna, o SNC controla cada músculo de forma rígida e totalmente independente, sem padrões coordenados.",
+          "Ter boa força muscular isolada garante automaticamente que não há alteração nas sinergias durante a marcha."
+        ],
+        correct: 1,
+        explain: "Na literatura contemporânea, sinergias musculares são padrões coordenados de ativação de múltiplos músculos (investigados por EMG multicanal) que simplificam o controle motor e se reorganizam com adaptação/aprendizagem. Um paciente pode ter força isolada normal, mas coordenação/sinergia alterada!"
+      },
+      {
+        id: 24, mod: "mod4", modLabel: "4. Funções Musculares", diff: "Fácil",
+        stem: "Em uma contração isométrica, qual afirmação descreve com maior precisão o que ocorre biomecanicamente?",
+        options: [
+          "O músculo não produz nenhuma tensão mecânica.",
+          "A unidade musculotendínea se alonga rapidamente vencida pela gravidade.",
+          "O músculo produz tensão sem alteração macroscópica relevante do ângulo articular, embora possam ocorrer modificações internas no comprimento dos fascículos e tendões.",
+          "Apenas músculos antagonistas podem realizar contração isométrica.",
+          "Ocorre encurtamento máximo da articulação com deslocamento angular amplo."
+        ],
+        correct: 2,
+        explain: "Na contração isométrica há geração de tensão sem mudança macroscópica relevante do ângulo articular — porém internamente ainda podem acontecer pequenas modificações no comprimento dos fascículos e dos tendões!"
+      },
+
+      // --- MÓDULO 5: FÁSCIAS ---
+      {
+        id: 25, mod: "mod5", modLabel: "5. Fáscias", diff: "Fácil",
+        stem: "A propriedade mecânica pela qual uma fáscia resiste melhor a forças aplicadas em uma direção do que em outra — devido à orientação específica de seus feixes de colágeno — é chamada de:",
+        options: [
+          "Viscoelasticidade.",
+          "Anisotropia.",
+          "Homogeneidade elástica.",
+          "Sensibilização periférica.",
+          "Apoptose fascial."
+        ],
+        correct: 1,
+        explain: "Anisotropia = comportamento mecânico que depende da direção da força aplicada (por causa da organização direcional dos feixes de colágeno). Heterogeneidade refere-se à variação de espessura/arquitetura entre diferentes regiões do corpo."
+      },
+      {
+        id: 26, mod: "mod5", modLabel: "5. Fáscias", diff: "Média",
+        stem: "Sobre o deslizamento fascial, o ácido hialurônico (HA) e o comportamento viscoelástico dos tecidos conjuntivos, assinale a alternativa CORRETA:",
+        options: [
+          "O ácido hialurônico é produzido por osteoblastos e funciona exclusivamente como um óleo lubrificante sem interação com água.",
+          "A arquitetura fascial combina camadas colágenas (estabilidade para transmitir carga) com interfaces ricas em ácido hialurônico (mobilidade por cisalhamento), resultando em comportamento viscoelástico dependente de força, velocidade e tempo.",
+          "Um tecido viscoelástico responde exatamente da mesma forma independentemente da velocidade ou duração da carga aplicada.",
+          "É impossível medir quantitativamente o deslizamento fascial por métodos de imagem.",
+          "A fáscia superficial é apenas uma camada desorganizada de gordura sem septos ou conexão com a pele."
+        ],
+        correct: 1,
+        explain: "Stecco et al. (2025) destacam a coexistência de camadas colágenas (estabilidade/carga) e interfaces viscosas ricas em HA secretado por fasciácitos (mobilidade por cisalhamento). Por ser viscoelástico, o tecido depende da força, da velocidade e do tempo de aplicação. E pode ser medido via ultrassonografia dinâmica + speckle tracking (Van Amstel et al., 2025)!"
+      },
+      {
+        id: 27, mod: "mod5", modLabel: "5. Fáscias", diff: "Difícil",
+        stem: "Qual alternativa representa CORRETAMENTE o caminho da mecanotransdução nas células fasciais e sua correta interpretação científica?",
+        options: [
+          "MEC → Integrinas → Citoesqueleto → Sinalização intracelular (ex.: YAP) → Núcleo → Expressão gênica (ex.: COL1A1); porém, expressão gênica NÃO é sinônimo de remodelamento macroscópico comprovado.",
+          "Núcleo → Citoesqueleto → Integrinas → MEC; provando que 5 minutos de liberação manual reorganizam permanentemente todo o colágeno da fáscia.",
+          "Ácido hialurônico → Retículo sarcoplasmático → Troponina → Contração da fáscia.",
+          "Mecanotransdução significa transformar um sinal bioquímico em potencial de ação no motoneurônio alfa.",
+          "A proteína YAP impede a comunicação entre a matriz extracelular e o núcleo dos fibroblastos."
+        ],
+        correct: 0,
+        explain: "Rota perfeita: MEC (força/deformação) → Integrinas/complexos de adesão → Citoesqueleto → Sinalização (como YAP, estudada por Pirri et al., 2023) → Núcleo → Expressão gênica (COL1A1, HABP2). E atenção à mensagem científica: alterar expressão gênica em células ≠ comprovar remodelamento macroscópico ou reorganização clínica por técnica manual rápida!"
+      },
+      {
+        id: 28, mod: "mod5", modLabel: "5. Fáscias", diff: "Média",
+        stem: "Sobre continuidade fascial e transmissão miofascial de força, qual frase reflete o rigor científico apresentado no material?",
+        options: [
+          "Se existe continuidade anatômica entre dois músculos, uma força aplicada em um ponto sempre gera efeito clínico relevante no corpo inteiro.",
+          "Continuidade anatômica, transmissão mecânica e efeito clínico são fenômenos distintos e não devem ser tratados como sinônimos automáticos.",
+          "A força muscular só viaja em linha reta (músculo → tendão → osso), sendo impossível qualquer transmissão lateral via epimísio ou perimísio.",
+          "Tensão mecânica (stress) e deformação relativa (strain) são exatamente a mesma grandeza física.",
+          "O estudo de Procópio et al. (2025) provou que todas as cadeias miofasciais funcionam de maneira idêntica."
+        ],
+        correct: 1,
+        explain: "Tríade de ouro: Continuidade Anatômica ≠ Transmissão Mecânica ≠ Efeito Clínico! Existe transmissão lateral mensurável (como entre latíssimo do dorso e glúteo máximo contralateral em Procópio et al., 2025), mas isso não prova que toda cadeia miofascial gere benefício clínico distante."
+      },
+      {
+        id: 29, mod: "mod5", modLabel: "5. Fáscias", diff: "Média",
+        stem: "Quanto à inervação fascial, nocicepção, dor e sensibilização periférica, assinale a alternativa CORRETA:",
+        options: [
+          "Nociceptor, nocicepção e dor são sinônimos, existindo sempre relação linear entre tamanho da lesão e intensidade da dor.",
+          "Na sensibilização periférica, mediadores químicos da inflamação AUMENTAM o limiar do nociceptor, tornando o tecido insensível.",
+          "Nocicepção é um processo neurofisiológico, enquanto dor é uma experiência sensorial e emocional complexa; na sensibilização periférica, mediadores reduzem o limiar dos nociceptores, aumentando a entrada nociceptiva.",
+          "Por possuir corpúsculos de Pacini e Ruffini, a fáscia deve ser definida como o único órgão responsável pela propriocepção humana.",
+          "A presença de terminações livres na fáscia prova que toda dor lombar é exclusivamente 'dor fascial'."
+        ],
+        correct: 2,
+        explain: "Nociceptor = terminação nervosa; Nocicepção = processo neurofisiológico; Dor = experiência sensorial e emocional complexa (não linear com lesão). Na sensibilização periférica, mediadores inflamatórios REDUZEM o limiar de ativação (um estímulo menor gera resposta maior). E a fáscia contribui para propriocepção e nocicepção, sem ser a única fonte!"
+      },
+      {
+        id: 30, mod: "mod5", modLabel: "5. Fáscias", diff: "Média",
+        stem: "Um paciente relata grande alívio da dor e melhora do movimento logo após uma sessão de terapia manual chamada de 'liberação miofascial'. Segundo o raciocínio científico do material, qual conclusão é a MAIS adequada?",
+        options: [
+          "A melhora clínica imediata comprova que aderências de colágeno na fáscia profunda foram mecanicamente rompidas.",
+          "Como a melhora ocorreu, fica provado que a rigidez sentida antes na palpação era causada por excesso de fibroblastos.",
+          "Deve-se separar efeito clínico de mecanismo do efeito: a melhora é real, mas pode envolver múltiplos fatores simultâneos (pele, mecanorreceptores, modulação nociceptiva, tolerância ao movimento, contexto terapêutico) sem provar 'liberação' estrutural.",
+          "A terapia manual não possui nenhum efeito clínico porque não rompe aderências fasciais.",
+          "Menor deslizamento fascial sempre causa dor intensa, e maior deslizamento sempre elimina toda dor."
+        ],
+        correct: 2,
+        explain: "Efeito clínico ≠ mecanismo do efeito! Isso não desvaloriza a terapia manual — apenas exige precisão científica: múltiplas respostas neurais, mecânicas, autonômicas e contextuais acontecem juntas durante o toque terapêutico, sem que a melhora prove rompimento estrutural de aderências."
+      }
+    ];
+
+    // =========================================================================
+    // STATE & STORAGE
+    // =========================================================================
+    const STORAGE_KEY = "anatomia_2p_study_v1";
+    let state = {
+      doneMods: {},
+      answers: {}, // { qId: chosenIndex }
+      dark: false
+    };
+
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+      if (saved) state = { ...state, ...saved };
+    } catch (e) {}
+
+    function saveState() {
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {}
+    }
+
+    // =========================================================================
+    // DARK MODE
+    // =========================================================================
+    const toggleDarkBtn = document.getElementById("toggleDarkBtn");
+    function applyDark() {
+      document.body.classList.toggle("dark", !!state.dark);
+      toggleDarkBtn.textContent = state.dark ? "☀️ Modo Claro" : "🌙 Modo Escuro";
+    }
+    toggleDarkBtn.addEventListener("click", () => {
+      state.dark = !state.dark;
+      applyDark();
+      saveState();
+    });
+    applyDark();
+
+    // =========================================================================
+    // TABS & MODULE PROGRESS
+    // =========================================================================
+    const tabBtns = document.querySelectorAll(".tab-btn");
+    const panels = document.querySelectorAll(".panel");
+    const searchWrap = document.getElementById("searchWrap");
+    const searchInput = document.getElementById("searchInput");
+    const searchStatus = document.getElementById("searchStatus");
+
+    function goTab(tabId) {
+      tabBtns.forEach(b => b.classList.toggle("active", b.dataset.tab === tabId));
+      panels.forEach(p => p.classList.toggle("active", p.id === tabId));
+      const isSummary = tabId.startsWith("mod");
+      searchWrap.style.display = isSummary ? "flex" : "none";
+      clearHighlights();
+      searchInput.value = "";
+      searchStatus.textContent = "";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    window.goTab = goTab;
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener("click", () => goTab(btn.dataset.tab));
+    });
+
+    function updateProgressUI() {
+      const modKeys = ["mod1", "mod2", "mod3", "mod4", "mod5"];
+      let doneCount = 0;
+      modKeys.forEach(k => {
+        const isDone = !!state.doneMods[k];
+        if (isDone) doneCount++;
+        const tabBtn = document.querySelector(`.tab-btn[data-tab="${k}"]`);
+        if (tabBtn) tabBtn.classList.toggle("is-done", isDone);
+        const checkBtn = document.querySelector(`.check-done-btn[data-done="${k}"]`);
+        if (checkBtn) {
+          checkBtn.classList.toggle("checked", isDone);
+          checkBtn.textContent = isDone ? "✅ Módulo estudado" : "☐ Marcar módulo como estudado";
+        }
+      });
+      document.getElementById("progressText").textContent = `Progresso de estudo: ${doneCount} de 5 módulos concluídos`;
+      document.getElementById("progressFill").style.width = `${(doneCount / 5) * 100}%`;
+    }
+
+    document.querySelectorAll(".check-done-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const k = btn.dataset.done;
+        state.doneMods[k] = !state.doneMods[k];
+        saveState();
+        updateProgressUI();
+      });
+    });
+    updateProgressUI();
+
+    // =========================================================================
+    // SEARCH HIGHLIGHT INSIDE ACTIVE SUMMARY MODULE
+    // =========================================================================
+    function clearHighlights() {
+      document.querySelectorAll("mark.hl").forEach(m => {
+        const parent = m.parentNode;
+        parent.replaceChild(document.createTextNode(m.textContent), m);
+        parent.normalize();
+      });
+    }
+
+    searchInput.addEventListener("input", () => {
+      clearHighlights();
+      const term = searchInput.value.trim();
+      if (term.length < 2) {
+        searchStatus.textContent = "";
+        return;
+      }
+      const activePanel = document.querySelector(".panel.active");
+      if (!activePanel) return;
+      const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      const regex = new RegExp(`(${escaped})`, "gi");
+      let matches = 0;
+
+      const walker = document.createTreeWalker(activePanel, NodeFilter.SHOW_TEXT, {
+        acceptNode(node) {
+          if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+          const tag = node.parentNode.tagName;
+          if (tag === "SVG" || tag === "TEXT" || tag === "SCRIPT" || tag === "STYLE" || tag === "BUTTON") {
+            return NodeFilter.FILTER_REJECT;
+          }
+          return NodeFilter.FILTER_ACCEPT;
+        }
+      });
+
+      const nodes = [];
+      let n;
+      while ((n = walker.nextNode())) nodes.push(n);
+
+      nodes.forEach(textNode => {
+        if (regex.test(textNode.nodeValue)) {
+          regex.lastIndex = 0;
+          const frag = document.createDocumentFragment();
+          let lastIdx = 0;
+          let m;
+          while ((m = regex.exec(textNode.nodeValue)) !== null) {
+            if (m.index > lastIdx) {
+              frag.appendChild(document.createTextNode(textNode.nodeValue.slice(lastIdx, m.index)));
+            }
+            const mark = document.createElement("mark");
+            mark.className = "hl";
+            mark.textContent = m[0];
+            frag.appendChild(mark);
+            matches++;
+            lastIdx = regex.lastIndex;
+          }
+          if (lastIdx < textNode.nodeValue.length) {
+            frag.appendChild(document.createTextNode(textNode.nodeValue.slice(lastIdx)));
+          }
+          textNode.parentNode.replaceChild(frag, textNode);
+        }
+      });
+
+      searchStatus.textContent = matches > 0 ? `${matches} ocorrência(s) neste módulo` : "Nenhuma ocorrência neste módulo";
+      if (matches > 0) {
+        const first = activePanel.querySelector("mark.hl");
+        if (first) first.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    });
+
+    // =========================================================================
+    // FLASHCARDS
+    // =========================================================================
+    const flashcardGrid = document.getElementById("flashcardGrid");
+    let allRevealed = false;
+
+    function renderFlashcards() {
+      flashcardGrid.innerHTML = FLASHCARDS.map((fc, i) => `
+        <div class="flashcard" data-fc="${i}" tabindex="0" role="button">
+          <div>
+            <div class="flashcard-mod">${fc.mod}</div>
+            <div class="flashcard-q">${fc.q}</div>
+          </div>
+          <div class="flashcard-a">${fc.a}</div>
+          <div class="flashcard-hint">👆 Clique para revelar a resposta</div>
+        </div>
+      `).join("");
+
+      flashcardGrid.querySelectorAll(".flashcard").forEach(card => {
+        const toggle = () => card.classList.toggle("revealed");
+        card.addEventListener("click", toggle);
+        card.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); } });
+      });
+    }
+    renderFlashcards();
+
+    document.getElementById("revealAllCardsBtn").addEventListener("click", () => {
+      allRevealed = !allRevealed;
+      flashcardGrid.querySelectorAll(".flashcard").forEach(c => c.classList.toggle("revealed", allRevealed));
+    });
+
+    // =========================================================================
+    // QUIZ ENGINE
+    // =========================================================================
+    let currentFilter = "all";
+    let retrySet = null; // Set of question IDs when retrying missed questions
+    let questionOrder = QUESTIONS.map(q => q.id);
+
+    const quizContainer = document.getElementById("quizContainer");
+    const letters = ["A", "B", "C", "D", "E"];
+
+    function updateQuizStats() {
+      const total = QUESTIONS.length;
+      let answered = 0, correct = 0, wrong = 0;
+      QUESTIONS.forEach(q => {
+        if (state.answers[q.id] !== undefined) {
+          answered++;
+          if (state.answers[q.id] === q.correct) correct++;
+          else wrong++;
+        }
+      });
+      const pct = answered > 0 ? Math.round((correct / answered) * 100) : 0;
+      document.getElementById("statAnswered").textContent = `${answered} / ${total}`;
+      document.getElementById("statCorrect").textContent = correct;
+      document.getElementById("statWrong").textContent = wrong;
+      document.getElementById("statPct").textContent = `${pct}%`;
+      document.getElementById("quizMiniScore").textContent = `Simulado: ${correct}/${answered} acertos (${answered}/${total})`;
+    }
+
+    function renderQuiz() {
+      const qMap = new Map(QUESTIONS.map(q => [q.id, q]));
+      let list = questionOrder.map(id => qMap.get(id));
+
+      if (retrySet) {
+        list = list.filter(q => retrySet.has(q.id));
+      } else if (currentFilter !== "all") {
+        list = list.filter(q => q.mod === currentFilter);
+      }
+
+      if (list.length === 0) {
+        quizContainer.innerHTML = `
+          <div class="card" style="text-align:center; padding:36px;">
+            <h3 style="justify-content:center;">🎉 Nenhuma questão pendente neste filtro!</h3>
+            <p style="color:var(--text-muted);">Você não tem questões erradas neste filtro no momento.</p>
+            <button class="action-btn primary" onclick="exitWrongMode()" type="button">Mostrar todas as questões</button>
+          </div>
+        `;
+        return;
+      }
+
+      const retryBanner = retrySet ? `
+        <div class="callout analogy" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+          <div><strong>🎯 Modo Refazer Erradas:</strong> exibindo apenas as ${list.length} questão(ões) que você errou para tentar novamente.</div>
+          <button class="action-btn" onclick="exitWrongMode()" type="button">Voltar para todas</button>
+        </div>
+      ` : "";
+
+      quizContainer.innerHTML = retryBanner + list.map((q, idx) => {
+        const chosen = state.answers[q.id];
+        const isAnswered = chosen !== undefined;
+        const isRight = isAnswered && chosen === q.correct;
+
+        const optsHtml = q.options.map((opt, oi) => {
+          let cls = "opt-btn";
+          if (isAnswered) {
+            if (oi === q.correct) cls += " correct";
+            else if (oi === chosen && chosen !== q.correct) cls += " wrong";
+          }
+          return `
+            <button class="${cls}" data-qid="${q.id}" data-oi="${oi}" ${isAnswered ? "disabled" : ""} type="button">
+              <span class="opt-letter">${letters[oi]}</span>
+              <span>${opt}</span>
+            </button>
+          `;
+        }).join("");
+
+        return `
+          <article class="q-card" id="qcard-${q.id}">
+            <div class="q-meta">
+              <span class="q-badge">Questão ${idx + 1} • ${q.modLabel}</span>
+              <span class="q-diff">Nível: ${q.diff}</span>
+            </div>
+            <p class="q-stem">${q.stem}</p>
+            <div class="options-list">${optsHtml}</div>
+            <div class="q-explain ${isAnswered ? "show" : ""} ${isAnswered && !isRight ? "wrong-feedback" : ""}">
+              <strong class="${isRight ? "status-ok" : "status-err"}">
+                ${isRight ? "✅ Resposta correta!" : `❌ Quase! A correta é a letra ${letters[q.correct]}.`}
+              </strong>
+              <p style="margin:6px 0 0;">${q.explain}</p>
+            </div>
+          </article>
+        `;
+      }).join("");
+
+      quizContainer.querySelectorAll(".opt-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const qid = Number(btn.dataset.qid);
+          const oi = Number(btn.dataset.oi);
+          if (state.answers[qid] !== undefined) return;
+          state.answers[qid] = oi;
+          saveState();
+          updateQuizStats();
+          renderQuiz();
+        });
+      });
+    }
+
+    window.exitWrongMode = () => {
+      retrySet = null;
+      renderQuiz();
+    };
+
+    document.querySelectorAll("#quizFilterPills .pill").forEach(pill => {
+      pill.addEventListener("click", () => {
+        document.querySelectorAll("#quizFilterPills .pill").forEach(p => p.classList.remove("active"));
+        pill.classList.add("active");
+        currentFilter = pill.dataset.filter;
+        retrySet = null;
+        renderQuiz();
+      });
+    });
+
+    document.getElementById("btnOnlyWrong").addEventListener("click", () => {
+      const wrongIds = QUESTIONS.filter(q => state.answers[q.id] !== undefined && state.answers[q.id] !== q.correct).map(q => q.id);
+      if (wrongIds.length === 0) {
+        alert("Você ainda não errou nenhuma questão (ou já corrigiu todas)!");
+        return;
+      }
+      wrongIds.forEach(id => { delete state.answers[id]; });
+      saveState();
+      updateQuizStats();
+      retrySet = new Set(wrongIds);
+      renderQuiz();
+    });
+
+    document.getElementById("btnShuffle").addEventListener("click", () => {
+      for (let i = questionOrder.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [questionOrder[i], questionOrder[j]] = [questionOrder[j], questionOrder[i]];
+      }
+      renderQuiz();
+    });
+
+    document.getElementById("btnResetQuiz").addEventListener("click", () => {
+      if (!confirm("Deseja apagar todas as suas respostas do simulado e começar do zero?")) return;
+      state.answers = {};
+      retrySet = null;
+      questionOrder = QUESTIONS.map(q => q.id);
+      saveState();
+      updateQuizStats();
+      renderQuiz();
+    });
+
+    updateQuizStats();
+    renderQuiz();
+  </script>
+</body>
+</html>
